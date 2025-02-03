@@ -1,0 +1,349 @@
+[
+    {
+        "label": "contextmanager",
+        "importPath": "contextlib",
+        "description": "contextlib",
+        "isExtraImport": true,
+        "detail": "contextlib",
+        "documentation": {}
+    },
+    {
+        "label": "contextmanager",
+        "importPath": "contextlib",
+        "description": "contextlib",
+        "isExtraImport": true,
+        "detail": "contextlib",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "DagBag",
+        "importPath": "airflow.models",
+        "description": "airflow.models",
+        "isExtraImport": true,
+        "detail": "airflow.models",
+        "documentation": {}
+    },
+    {
+        "label": "Variable",
+        "importPath": "airflow.models",
+        "description": "airflow.models",
+        "isExtraImport": true,
+        "detail": "airflow.models",
+        "documentation": {}
+    },
+    {
+        "label": "Connection",
+        "importPath": "airflow.models",
+        "description": "airflow.models",
+        "isExtraImport": true,
+        "detail": "airflow.models",
+        "documentation": {}
+    },
+    {
+        "label": "DagBag",
+        "importPath": "airflow.models",
+        "description": "airflow.models",
+        "isExtraImport": true,
+        "detail": "airflow.models",
+        "documentation": {}
+    },
+    {
+        "label": "BaseHook",
+        "importPath": "airflow.hooks.base",
+        "description": "airflow.hooks.base",
+        "isExtraImport": true,
+        "detail": "airflow.hooks.base",
+        "documentation": {}
+    },
+    {
+        "label": "initdb",
+        "importPath": "airflow.utils.db",
+        "description": "airflow.utils.db",
+        "isExtraImport": true,
+        "detail": "airflow.utils.db",
+        "documentation": {}
+    },
+    {
+        "label": "Dataset",
+        "importPath": "airflow",
+        "description": "airflow",
+        "isExtraImport": true,
+        "detail": "airflow",
+        "documentation": {}
+    },
+    {
+        "label": "dag",
+        "importPath": "airflow.decorators",
+        "description": "airflow.decorators",
+        "isExtraImport": true,
+        "detail": "airflow.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "task",
+        "importPath": "airflow.decorators",
+        "description": "airflow.decorators",
+        "isExtraImport": true,
+        "detail": "airflow.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "pendulum",
+        "description": "pendulum",
+        "isExtraImport": true,
+        "detail": "pendulum",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "kaggle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "kaggle",
+        "description": "kaggle",
+        "detail": "kaggle",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "magic_dict",
+        "kind": 6,
+        "importPath": "airflow..astro.test_dag_integrity_default",
+        "description": "airflow..astro.test_dag_integrity_default",
+        "peekOfCode": "class magic_dict(dict):\n    def __init__(self, *args, **kwargs):\n        self.update(*args, **kwargs)\n    def __getitem__(self, key):\n        return {}.get(key, \"MOCKED_KEY_VALUE\")\n_no_default = object()  # allow falsey defaults\ndef variable_get_monkeypatch(key: str, default_var=_no_default, deserialize_json=False):\n    print(\n        f\"Attempted to get Variable value during parse, returning a mocked value for {key}\"\n    )",
+        "detail": "airflow..astro.test_dag_integrity_default",
+        "documentation": {}
+    },
+    {
+        "label": "basehook_get_connection_monkeypatch",
+        "kind": 2,
+        "importPath": "airflow..astro.test_dag_integrity_default",
+        "description": "airflow..astro.test_dag_integrity_default",
+        "peekOfCode": "def basehook_get_connection_monkeypatch(key: str, *args, **kwargs):\n    print(\n        f\"Attempted to fetch connection during parse returning an empty Connection object for {key}\"\n    )\n    return Connection(key)\nBaseHook.get_connection = basehook_get_connection_monkeypatch\n# # =========== /MONKEYPATCH BASEHOOK.GET_CONNECTION() ===========\n# =========== MONKEYPATCH OS.GETENV() ===========\ndef os_getenv_monkeypatch(key: str, *args, **kwargs):\n    default = None",
+        "detail": "airflow..astro.test_dag_integrity_default",
+        "documentation": {}
+    },
+    {
+        "label": "os_getenv_monkeypatch",
+        "kind": 2,
+        "importPath": "airflow..astro.test_dag_integrity_default",
+        "description": "airflow..astro.test_dag_integrity_default",
+        "peekOfCode": "def os_getenv_monkeypatch(key: str, *args, **kwargs):\n    default = None\n    if args:\n        default = args[0]  # os.getenv should get at most 1 arg after the key\n    if kwargs:\n        default = kwargs.get(\n            \"default\", None\n        )  # and sometimes kwarg if people are using the sig\n    env_value = os.environ.get(key, None)\n    if env_value:",
+        "detail": "airflow..astro.test_dag_integrity_default",
+        "documentation": {}
+    },
+    {
+        "label": "variable_get_monkeypatch",
+        "kind": 2,
+        "importPath": "airflow..astro.test_dag_integrity_default",
+        "description": "airflow..astro.test_dag_integrity_default",
+        "peekOfCode": "def variable_get_monkeypatch(key: str, default_var=_no_default, deserialize_json=False):\n    print(\n        f\"Attempted to get Variable value during parse, returning a mocked value for {key}\"\n    )\n    if default_var is not _no_default:\n        return default_var\n    if deserialize_json:\n        return magic_dict()\n    return \"NON_DEFAULT_MOCKED_VARIABLE_VALUE\"\nVariable.get = variable_get_monkeypatch",
+        "detail": "airflow..astro.test_dag_integrity_default",
+        "documentation": {}
+    },
+    {
+        "label": "suppress_logging",
+        "kind": 2,
+        "importPath": "airflow..astro.test_dag_integrity_default",
+        "description": "airflow..astro.test_dag_integrity_default",
+        "peekOfCode": "def suppress_logging(namespace):\n    \"\"\"\n    Suppress logging within a specific namespace to keep tests \"clean\" during build\n    \"\"\"\n    logger = logging.getLogger(namespace)\n    old_value = logger.disabled\n    logger.disabled = True\n    try:\n        yield\n    finally:",
+        "detail": "airflow..astro.test_dag_integrity_default",
+        "documentation": {}
+    },
+    {
+        "label": "get_import_errors",
+        "kind": 2,
+        "importPath": "airflow..astro.test_dag_integrity_default",
+        "description": "airflow..astro.test_dag_integrity_default",
+        "peekOfCode": "def get_import_errors():\n    \"\"\"\n    Generate a tuple for import errors in the dag bag, and include DAGs without errors.\n    \"\"\"\n    with suppress_logging(\"airflow\"):\n        dag_bag = DagBag(include_examples=False)\n        def strip_path_prefix(path):\n            return os.path.relpath(path, os.environ.get(\"AIRFLOW_HOME\"))\n        # Initialize an empty list to store the tuples\n        result = []",
+        "detail": "airflow..astro.test_dag_integrity_default",
+        "documentation": {}
+    },
+    {
+        "label": "test_file_imports",
+        "kind": 2,
+        "importPath": "airflow..astro.test_dag_integrity_default",
+        "description": "airflow..astro.test_dag_integrity_default",
+        "peekOfCode": "def test_file_imports(rel_path, rv):\n    \"\"\"Test for import errors on a file\"\"\"\n    if os.path.exists(\".astro/dag_integrity_exceptions.txt\"):\n        with open(\".astro/dag_integrity_exceptions.txt\", \"r\") as f:\n            exceptions = f.readlines()\n    print(f\"Exceptions: {exceptions}\")\n    if (rv != \"No import errors\") and rel_path not in exceptions:\n        # If rv is not \"No import errors,\" consider it a failed test\n        raise Exception(f\"{rel_path} failed to import with message \\n {rv}\")\n    else:",
+        "detail": "airflow..astro.test_dag_integrity_default",
+        "documentation": {}
+    },
+    {
+        "label": "BaseHook.get_connection",
+        "kind": 5,
+        "importPath": "airflow..astro.test_dag_integrity_default",
+        "description": "airflow..astro.test_dag_integrity_default",
+        "peekOfCode": "BaseHook.get_connection = basehook_get_connection_monkeypatch\n# # =========== /MONKEYPATCH BASEHOOK.GET_CONNECTION() ===========\n# =========== MONKEYPATCH OS.GETENV() ===========\ndef os_getenv_monkeypatch(key: str, *args, **kwargs):\n    default = None\n    if args:\n        default = args[0]  # os.getenv should get at most 1 arg after the key\n    if kwargs:\n        default = kwargs.get(\n            \"default\", None",
+        "detail": "airflow..astro.test_dag_integrity_default",
+        "documentation": {}
+    },
+    {
+        "label": "os.getenv",
+        "kind": 5,
+        "importPath": "airflow..astro.test_dag_integrity_default",
+        "description": "airflow..astro.test_dag_integrity_default",
+        "peekOfCode": "os.getenv = os_getenv_monkeypatch\n# # =========== /MONKEYPATCH OS.GETENV() ===========\n# =========== MONKEYPATCH VARIABLE.GET() ===========\nclass magic_dict(dict):\n    def __init__(self, *args, **kwargs):\n        self.update(*args, **kwargs)\n    def __getitem__(self, key):\n        return {}.get(key, \"MOCKED_KEY_VALUE\")\n_no_default = object()  # allow falsey defaults\ndef variable_get_monkeypatch(key: str, default_var=_no_default, deserialize_json=False):",
+        "detail": "airflow..astro.test_dag_integrity_default",
+        "documentation": {}
+    },
+    {
+        "label": "_no_default",
+        "kind": 5,
+        "importPath": "airflow..astro.test_dag_integrity_default",
+        "description": "airflow..astro.test_dag_integrity_default",
+        "peekOfCode": "_no_default = object()  # allow falsey defaults\ndef variable_get_monkeypatch(key: str, default_var=_no_default, deserialize_json=False):\n    print(\n        f\"Attempted to get Variable value during parse, returning a mocked value for {key}\"\n    )\n    if default_var is not _no_default:\n        return default_var\n    if deserialize_json:\n        return magic_dict()\n    return \"NON_DEFAULT_MOCKED_VARIABLE_VALUE\"",
+        "detail": "airflow..astro.test_dag_integrity_default",
+        "documentation": {}
+    },
+    {
+        "label": "Variable.get",
+        "kind": 5,
+        "importPath": "airflow..astro.test_dag_integrity_default",
+        "description": "airflow..astro.test_dag_integrity_default",
+        "peekOfCode": "Variable.get = variable_get_monkeypatch\n# # =========== /MONKEYPATCH VARIABLE.GET() ===========\n@contextmanager\ndef suppress_logging(namespace):\n    \"\"\"\n    Suppress logging within a specific namespace to keep tests \"clean\" during build\n    \"\"\"\n    logger = logging.getLogger(namespace)\n    old_value = logger.disabled\n    logger.disabled = True",
+        "detail": "airflow..astro.test_dag_integrity_default",
+        "documentation": {}
+    },
+    {
+        "label": "example_astronauts",
+        "kind": 2,
+        "importPath": "airflow.dags.exampledag",
+        "description": "airflow.dags.exampledag",
+        "peekOfCode": "def example_astronauts():\n    # Define tasks\n    @task(\n        # Define a dataset outlet for the task. This can be used to schedule downstream DAGs when this task has run.\n        outlets=[Dataset(\"current_astronauts\")]\n    )  # Define that this task updates the `current_astronauts` Dataset\n    def get_astronauts(**context) -> list[dict]:\n        \"\"\"\n        This task uses the requests library to retrieve a list of Astronauts\n        currently in space. The results are pushed to XCom with a specific key",
+        "detail": "airflow.dags.exampledag",
+        "documentation": {}
+    },
+    {
+        "label": "suppress_logging",
+        "kind": 2,
+        "importPath": "airflow.tests.dags.test_dag_example",
+        "description": "airflow.tests.dags.test_dag_example",
+        "peekOfCode": "def suppress_logging(namespace):\n    logger = logging.getLogger(namespace)\n    old_value = logger.disabled\n    logger.disabled = True\n    try:\n        yield\n    finally:\n        logger.disabled = old_value\ndef get_import_errors():\n    \"\"\"",
+        "detail": "airflow.tests.dags.test_dag_example",
+        "documentation": {}
+    },
+    {
+        "label": "get_import_errors",
+        "kind": 2,
+        "importPath": "airflow.tests.dags.test_dag_example",
+        "description": "airflow.tests.dags.test_dag_example",
+        "peekOfCode": "def get_import_errors():\n    \"\"\"\n    Generate a tuple for import errors in the dag bag\n    \"\"\"\n    with suppress_logging(\"airflow\"):\n        dag_bag = DagBag(include_examples=False)\n        def strip_path_prefix(path):\n            return os.path.relpath(path, os.environ.get(\"AIRFLOW_HOME\"))\n        # prepend \"(None,None)\" to ensure that a test object is always created even if it's a no op.\n        return [(None, None)] + [",
+        "detail": "airflow.tests.dags.test_dag_example",
+        "documentation": {}
+    },
+    {
+        "label": "get_dags",
+        "kind": 2,
+        "importPath": "airflow.tests.dags.test_dag_example",
+        "description": "airflow.tests.dags.test_dag_example",
+        "peekOfCode": "def get_dags():\n    \"\"\"\n    Generate a tuple of dag_id, <DAG objects> in the DagBag\n    \"\"\"\n    with suppress_logging(\"airflow\"):\n        dag_bag = DagBag(include_examples=False)\n    def strip_path_prefix(path):\n        return os.path.relpath(path, os.environ.get(\"AIRFLOW_HOME\"))\n    return [(k, v, strip_path_prefix(v.fileloc)) for k, v in dag_bag.dags.items()]\n@pytest.mark.parametrize(",
+        "detail": "airflow.tests.dags.test_dag_example",
+        "documentation": {}
+    },
+    {
+        "label": "test_file_imports",
+        "kind": 2,
+        "importPath": "airflow.tests.dags.test_dag_example",
+        "description": "airflow.tests.dags.test_dag_example",
+        "peekOfCode": "def test_file_imports(rel_path, rv):\n    \"\"\"Test for import errors on a file\"\"\"\n    if rel_path and rv:\n        raise Exception(f\"{rel_path} failed to import with message \\n {rv}\")\nAPPROVED_TAGS = {}\n@pytest.mark.parametrize(\n    \"dag_id,dag,fileloc\", get_dags(), ids=[x[2] for x in get_dags()]\n)\ndef test_dag_tags(dag_id, dag, fileloc):\n    \"\"\"",
+        "detail": "airflow.tests.dags.test_dag_example",
+        "documentation": {}
+    },
+    {
+        "label": "test_dag_tags",
+        "kind": 2,
+        "importPath": "airflow.tests.dags.test_dag_example",
+        "description": "airflow.tests.dags.test_dag_example",
+        "peekOfCode": "def test_dag_tags(dag_id, dag, fileloc):\n    \"\"\"\n    test if a DAG is tagged and if those TAGs are in the approved list\n    \"\"\"\n    assert dag.tags, f\"{dag_id} in {fileloc} has no tags\"\n    if APPROVED_TAGS:\n        assert not set(dag.tags) - APPROVED_TAGS\n@pytest.mark.parametrize(\n    \"dag_id,dag, fileloc\", get_dags(), ids=[x[2] for x in get_dags()]\n)",
+        "detail": "airflow.tests.dags.test_dag_example",
+        "documentation": {}
+    },
+    {
+        "label": "test_dag_retries",
+        "kind": 2,
+        "importPath": "airflow.tests.dags.test_dag_example",
+        "description": "airflow.tests.dags.test_dag_example",
+        "peekOfCode": "def test_dag_retries(dag_id, dag, fileloc):\n    \"\"\"\n    test if a DAG has retries set\n    \"\"\"\n    assert (\n        dag.default_args.get(\"retries\", None) >= 2\n    ), f\"{dag_id} in {fileloc} must have task retries >= 2.\"",
+        "detail": "airflow.tests.dags.test_dag_example",
+        "documentation": {}
+    },
+    {
+        "label": "APPROVED_TAGS",
+        "kind": 5,
+        "importPath": "airflow.tests.dags.test_dag_example",
+        "description": "airflow.tests.dags.test_dag_example",
+        "peekOfCode": "APPROVED_TAGS = {}\n@pytest.mark.parametrize(\n    \"dag_id,dag,fileloc\", get_dags(), ids=[x[2] for x in get_dags()]\n)\ndef test_dag_tags(dag_id, dag, fileloc):\n    \"\"\"\n    test if a DAG is tagged and if those TAGs are in the approved list\n    \"\"\"\n    assert dag.tags, f\"{dag_id} in {fileloc} has no tags\"\n    if APPROVED_TAGS:",
+        "detail": "airflow.tests.dags.test_dag_example",
+        "documentation": {}
+    },
+    {
+        "label": "dataset_directory",
+        "kind": 5,
+        "importPath": "extract.get_data_kaggle",
+        "description": "extract.get_data_kaggle",
+        "peekOfCode": "dataset_directory = Path.cwd() / 'datasets'\n# Download dataset from Kaggle\nkaggle.api.dataset_download_files(\"oleksiimartusiuk/e-commerce-data-shein\", path=dataset_directory, unzip=True)\n# Load datasets into pandas DataFrames\ncsv_files = list(dataset_directory.glob(\"*.csv\"))\nfor file in csv_files:\n    try:\n        df = pd.read_csv(file)\n        # Convert DataFrame to Parquet format and save it\n        df.to_parquet(file.with_suffix('.parquet'), engine='pyarrow')  # or 'fastparquet'",
+        "detail": "extract.get_data_kaggle",
+        "documentation": {}
+    },
+    {
+        "label": "csv_files",
+        "kind": 5,
+        "importPath": "extract.get_data_kaggle",
+        "description": "extract.get_data_kaggle",
+        "peekOfCode": "csv_files = list(dataset_directory.glob(\"*.csv\"))\nfor file in csv_files:\n    try:\n        df = pd.read_csv(file)\n        # Convert DataFrame to Parquet format and save it\n        df.to_parquet(file.with_suffix('.parquet'), engine='pyarrow')  # or 'fastparquet'\n        # Delete the original CSV file after conversion\n        file.unlink()\n        print(f\"Successfully Converted {file} to {file.with_suffix('.parquet')}\")\n    except Exception as e:",
+        "detail": "extract.get_data_kaggle",
+        "documentation": {}
+    }
+]
