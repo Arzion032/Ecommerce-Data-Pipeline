@@ -158,6 +158,31 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "snowflake.connector",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "snowflake.connector",
+        "description": "snowflake.connector",
+        "detail": "snowflake.connector",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "magic_dict",
         "kind": 6,
         "importPath": "airflow..astro.test_dag_integrity_default",
@@ -344,6 +369,51 @@
         "description": "extract.get_data_kaggle",
         "peekOfCode": "csv_files = list(dataset_directory.glob(\"*.csv\"))\nfor file in csv_files:\n    try:\n        df = pd.read_csv(file)\n        # Convert DataFrame to Parquet format and save it\n        df.to_parquet(file.with_suffix('.parquet'), engine='pyarrow')  # or 'fastparquet'\n        # Delete the original CSV file after conversion\n        file.unlink()\n        print(f\"Successfully Converted {file} to {file.with_suffix('.parquet')}\")\n    except Exception as e:",
         "detail": "extract.get_data_kaggle",
+        "documentation": {}
+    },
+    {
+        "label": "env_path",
+        "kind": 5,
+        "importPath": "load.load_data_snowflake",
+        "description": "load.load_data_snowflake",
+        "peekOfCode": "env_path = Path(__file__).resolve().parent.parent/ 'config'/'.env'\nload_dotenv(dotenv_path=env_path)\nstage_creation_query = \"\"\"\nCREATE STAGE IF NOT EXISTS product_stage\n  FILE_FORMAT=(TYPE=PARQUET);\n\"\"\"\n# Connect to Snowflake\nconn = snowflake.connector.connect(\n    user=os.getenv('snowflake_user'),\n    password=os.getenv('snowflake_password'),",
+        "detail": "load.load_data_snowflake",
+        "documentation": {}
+    },
+    {
+        "label": "stage_creation_query",
+        "kind": 5,
+        "importPath": "load.load_data_snowflake",
+        "description": "load.load_data_snowflake",
+        "peekOfCode": "stage_creation_query = \"\"\"\nCREATE STAGE IF NOT EXISTS product_stage\n  FILE_FORMAT=(TYPE=PARQUET);\n\"\"\"\n# Connect to Snowflake\nconn = snowflake.connector.connect(\n    user=os.getenv('snowflake_user'),\n    password=os.getenv('snowflake_password'),\n    account=os.getenv('snowflake_account'),\n    warehouse=os.getenv('snowflake_warehouse'),",
+        "detail": "load.load_data_snowflake",
+        "documentation": {}
+    },
+    {
+        "label": "conn",
+        "kind": 5,
+        "importPath": "load.load_data_snowflake",
+        "description": "load.load_data_snowflake",
+        "peekOfCode": "conn = snowflake.connector.connect(\n    user=os.getenv('snowflake_user'),\n    password=os.getenv('snowflake_password'),\n    account=os.getenv('snowflake_account'),\n    warehouse=os.getenv('snowflake_warehouse'),\n    database=os.getenv('snowflake_database'),\n    schema=os.getenv('snowflake_schema')\n)\ndataset_path = Path(__file__).resolve().parent.parent/'extract'/'datasets'\ncur = conn.cursor()",
+        "detail": "load.load_data_snowflake",
+        "documentation": {}
+    },
+    {
+        "label": "dataset_path",
+        "kind": 5,
+        "importPath": "load.load_data_snowflake",
+        "description": "load.load_data_snowflake",
+        "peekOfCode": "dataset_path = Path(__file__).resolve().parent.parent/'extract'/'datasets'\ncur = conn.cursor()\ncur.execute(stage_creation_query)\n# Upload file to Snowflake stage\nfor file in dataset_path.glob(\"*.parquet\"):\n    # Convert to absolute path and replace backslashes with forward slashes\n    file_path = str(file.absolute()).replace('\\\\', '/')\n    # For Windows paths, add the file:// prefix and wrap the entire path in single quotes\n    if os.name == 'nt':  # Windows\n        file_path = f\"'file://{file_path}'\"",
+        "detail": "load.load_data_snowflake",
+        "documentation": {}
+    },
+    {
+        "label": "cur",
+        "kind": 5,
+        "importPath": "load.load_data_snowflake",
+        "description": "load.load_data_snowflake",
+        "peekOfCode": "cur = conn.cursor()\ncur.execute(stage_creation_query)\n# Upload file to Snowflake stage\nfor file in dataset_path.glob(\"*.parquet\"):\n    # Convert to absolute path and replace backslashes with forward slashes\n    file_path = str(file.absolute()).replace('\\\\', '/')\n    # For Windows paths, add the file:// prefix and wrap the entire path in single quotes\n    if os.name == 'nt':  # Windows\n        file_path = f\"'file://{file_path}'\"\n    # Create the PUT command with proper syntax",
+        "detail": "load.load_data_snowflake",
         "documentation": {}
     }
 ]
