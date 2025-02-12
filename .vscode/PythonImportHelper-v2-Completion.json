@@ -373,7 +373,7 @@
         "kind": 2,
         "importPath": "dags.load.load_data_snowflake",
         "description": "dags.load.load_data_snowflake",
-        "peekOfCode": "def dump_data():\n    env_path = Path(__file__).resolve().parent.parent.parent/'.env'\n    load_dotenv(dotenv_path=env_path)\n    schema_name = os.getenv('snowflake_schema')\n    role = os.getenv('snowflake_role')\n    stage_creation_query = f\"\"\"\n    CREATE STAGE IF NOT EXISTS {schema_name}.product_stage\n    FILE_FORMAT=(TYPE=PARQUET);\n    \"\"\"\n    # Connect to Snowflake",
+        "peekOfCode": "def dump_data():\n    env_path = Path(__file__).resolve().parent.parent.parent/'.env'\n    load_dotenv(dotenv_path=env_path)\n    schema_name = os.getenv('SNOWFLAKE_SCHEMA')\n    role = os.getenv('SNOWFLAKE_ROLE')\n    stage_creation_query = f\"\"\"\n    CREATE STAGE IF NOT EXISTS {schema_name}.product_stage\n    FILE_FORMAT=(TYPE=PARQUET);\n    \"\"\"\n    # Connect to Snowflake",
         "detail": "dags.load.load_data_snowflake",
         "documentation": {}
     },

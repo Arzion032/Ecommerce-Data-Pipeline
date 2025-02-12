@@ -1,7 +1,20 @@
-name: 'retail'
+name: 'transform'
 
-profile: 'retail'
+profile: 'e-commerce'
 
 models:
-  retail:
-    materialized: table
+  e-commerce:
+    staging:
+      +materialized: view 
+      +schema: staging  
+      snowflake_warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+
+    intermediate:
+      +materialized: table
+      +schema: intermediate  
+      snowflake_warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+
+    analytics:
+      +materialized: table
+      +schema: marts
+      snowflake_warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
