@@ -243,6 +243,15 @@
         "documentation": {}
     },
     {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
         "label": "magic_dict",
         "kind": 6,
         "importPath": ".astro.test_dag_integrity_default",
@@ -456,6 +465,24 @@
         "description": "tests.dags.test_dag_example",
         "peekOfCode": "APPROVED_TAGS = {}\n@pytest.mark.parametrize(\n    \"dag_id,dag,fileloc\", get_dags(), ids=[x[2] for x in get_dags()]\n)\ndef test_dag_tags(dag_id, dag, fileloc):\n    \"\"\"\n    test if a DAG is tagged and if those TAGs are in the approved list\n    \"\"\"\n    assert dag.tags, f\"{dag_id} in {fileloc} has no tags\"\n    if APPROVED_TAGS:",
         "detail": "tests.dags.test_dag_example",
+        "documentation": {}
+    },
+    {
+        "label": "url",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "url = \"https://microdata.worldbank.org/index.php/api/tables/data/fcv/wld_2021_rtfp_v02_m?limit=15&offset=0&country=Philippines&fields=country,rice,l_rice,o_rice,trust_rice,o_rice_various,c_rice_various\"\nresponse = requests.get(url)\nif response.status_code == 200:\n    data = response.json()\n    print(data)\nelse:\n    print(f\"Request failed with status code {response.status_code}\")",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "response = requests.get(url)\nif response.status_code == 200:\n    data = response.json()\n    print(data)\nelse:\n    print(f\"Request failed with status code {response.status_code}\")",
+        "detail": "test",
         "documentation": {}
     }
 ]

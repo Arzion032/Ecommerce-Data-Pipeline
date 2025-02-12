@@ -50,4 +50,3 @@ def dump_data():
     cur.close()
     
     shutil.rmtree(dataset_path)
-
