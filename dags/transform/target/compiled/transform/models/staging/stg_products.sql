@@ -1,10 +1,6 @@
-
-  create or replace   view E_COMMERCE_PRODUCT.products_schema.stg_products
-  
-   as (
-    SELECT 
-    metadata$filename AS file_name,
-    metadata$file_row_number AS row_number,
+SELECT 
+    METADATA$FILENAME AS file_name,
+    METADATA$FILE_ROW_NUMBER AS row_number,
     $1:"goods-title-link--jump"::STRING AS goods_title_link_jump, 
     $1:"goods-title-link--jump href"::STRING AS goods_title_link_href, 
     $1:"rank-title"::STRING AS rank_title,
@@ -17,10 +13,5 @@
     $1:"blackfridaybelts-bg src"::STRING AS blackfridaybelts_bg_src,
     $1:"blackfridaybelts-content"::STRING AS blackfridaybelts_content
 FROM 
-    (
-        SELECT $1
-        FROM @e_commerce_product.products_schema.product_stage
-        (FILE_FORMAT => PARQUET)
-    );
-  );
-
+    @product_stage
+    (file_format => 'parquet_format', pattern => '.*.parquet')

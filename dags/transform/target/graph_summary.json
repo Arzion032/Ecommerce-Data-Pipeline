@@ -1,1 +1,1 @@
-{"_invocation_id": "5b513865-e2b4-4a3e-95ca-6be7c3efc26f", "linked": {"0": {"name": "model.transform.stg_products", "type": "model"}}}
+{"_invocation_id": "a7c1f8b5-6740-46a5-a64f-dd57ad6c96cc", "linked": {"0": {"name": "model.transform.int_products", "type": "model", "succ": [2]}, "1": {"name": "model.transform.stg_products", "type": "model", "succ": [0]}, "2": {"name": "test.transform.unique_int_products_goods_title_link_jump.a1cc7cf606", "type": "test"}}}
