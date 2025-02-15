@@ -17,6 +17,7 @@ WITH clean_cols AS
         LTRIM(BLACKFRIDAYBELTS_CONTENT, 'Save $')::FLOAT AS "BLACKFRIDAYBELTS_CONTENT(Save $)"
     FROM {{ ref('stg_products') }}
     ),
+
 null_filled AS (
     SELECT
         LOWER(TRIM(COALESCE(goods_title_link, 'Unknown'))) AS title,
@@ -31,6 +32,7 @@ null_filled AS (
         COALESCE("BLACKFRIDAYBELTS_CONTENT(Save $)", 0) AS blackfriday_savings
     FROM clean_cols
 ),
+
 unique_rows AS (
 SELECT 
     DISTINCT *
