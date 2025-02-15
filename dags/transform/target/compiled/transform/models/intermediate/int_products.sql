@@ -1,6 +1,7 @@
 WITH clean_cols AS 
     (
     SELECT
+        goods_title_link,
         GOODS_TITLE_LINK_JUMP,
         SPLIT("FILE_NAME", '-')[2]::STRING AS category,
         SPLIT(LTRIM(RANK_TITLE, '#'), ' ')[0]::INTEGER AS rank_title,
@@ -18,19 +19,25 @@ WITH clean_cols AS
     ),
 null_filled AS (
     SELECT
-        GOODS_TITLE_LINK_JUMP,
+        LOWER(TRIM(COALESCE(goods_title_link, 'Unknown'))) AS title,
+        LOWER(TRIM(COALESCE(GOODS_TITLE_LINK_JUMP, 'No Link Available'))) AS goods_title_link_jump,  
         category,
-        rank_title,
-        rank_sub,
+        COALESCE(rank_title, -1) AS rank_title, 
+        COALESCE(rank_sub, 'Unknown') AS rank_sub,
         ROUND(COALESCE("PRICE($)", COALESCE(AVG("PRICE($)") OVER(PARTITION BY category),0)) ,2) AS price_dollars,
         ROUND(COALESCE(DISCOUNT, COALESCE(AVG(DISCOUNT) OVER(PARTITION BY category),0)) ,2) AS discount,
         COALESCE(selling_proposition, COALESCE(AVG(selling_proposition) OVER(PARTITION BY category),0))::INTEGER AS selling_proposition,
-        COLOR_COUNT,
-        "BLACKFRIDAYBELTS_CONTENT(Save $)"
+        COALESCE(COLOR_COUNT, 0) AS "color_count",
+        COALESCE("BLACKFRIDAYBELTS_CONTENT(Save $)", 0) AS blackfriday_savings
     FROM clean_cols
+),
+unique_rows AS (
+SELECT 
+    DISTINCT *
+FROM null_filled
 )
 
-
 SELECT 
-    * 
-FROM null_filled
+    md5(cast(coalesce(cast(discount as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(price_dollars as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(title as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(selling_proposition as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(category as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(rank_sub as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(rank_title as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast("color_count" as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) AS sk_id,
+     * 
+    FROM unique_rows

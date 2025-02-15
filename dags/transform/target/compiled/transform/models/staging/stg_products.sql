@@ -11,7 +11,7 @@ SELECT
     $1:"goods-title-link"::STRING AS goods_title_link,
     $1:"color-count"::INTEGER AS color_count,
     $1:"blackfridaybelts-bg src"::STRING AS blackfridaybelts_bg_src,
-    $1:"blackfridaybelts-content"::STRING AS blackfridaybelts_content
+    $1:"blackfridaybelts-content"::STRING AS blackfridaybelts_content,
 FROM 
     @product_stage
     (file_format => 'parquet_format', pattern => '.*.parquet')
