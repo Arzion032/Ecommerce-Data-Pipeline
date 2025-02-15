@@ -17,6 +17,7 @@ WITH clean_cols AS
         LTRIM(BLACKFRIDAYBELTS_CONTENT, 'Save $')::FLOAT AS "BLACKFRIDAYBELTS_CONTENT(Save $)"
     FROM E_COMMERCE_PRODUCT.products_schema.stg_products
     ),
+
 null_filled AS (
     SELECT
         LOWER(TRIM(COALESCE(goods_title_link, 'Unknown'))) AS title,
@@ -27,10 +28,11 @@ null_filled AS (
         ROUND(COALESCE("PRICE($)", COALESCE(AVG("PRICE($)") OVER(PARTITION BY category),0)) ,2) AS price_dollars,
         ROUND(COALESCE(DISCOUNT, COALESCE(AVG(DISCOUNT) OVER(PARTITION BY category),0)) ,2) AS discount,
         COALESCE(selling_proposition, COALESCE(AVG(selling_proposition) OVER(PARTITION BY category),0))::INTEGER AS selling_proposition,
-        COALESCE(COLOR_COUNT, 0) AS "color_count",
+        COALESCE(COLOR_COUNT, 0) AS "color_counts",
         COALESCE("BLACKFRIDAYBELTS_CONTENT(Save $)", 0) AS blackfriday_savings
     FROM clean_cols
 ),
+
 unique_rows AS (
 SELECT 
     DISTINCT *
@@ -38,6 +40,6 @@ FROM null_filled
 )
 
 SELECT 
-    md5(cast(coalesce(cast(discount as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(price_dollars as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(title as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(selling_proposition as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(category as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(rank_sub as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(rank_title as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast("color_count" as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) AS sk_id,
+    md5(cast(coalesce(cast(discount as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(price_dollars as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(title as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(selling_proposition as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(category as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(rank_sub as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(rank_title as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast("color_counts" as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) AS sk_id,
      * 
-    FROM unique_rows
+FROM unique_rows
