@@ -42,5 +42,5 @@ FROM null_filled
 SELECT 
     {{ dbt_utils.generate_surrogate_key(['discount', 'price_dollars', 'title', 'selling_proposition', 'category','rank_sub','rank_title','"color_count"']) }} AS sk_id,
      * 
-    FROM unique_rows
+FROM unique_rows
     
