@@ -5,7 +5,8 @@ SELECT
     inttable.rank_title,
     inttable.rank_sub,
     inttable.GOODS_TITLE_LINK_JUMP,
-    inttable."color_counts"
+    inttable."color_counts",
+    inttable.blackfriday_savings
 FROM {{ ref('int_products') }} AS inttable
 JOIN {{ ref('dim_category') }} AS ct
     ON inttable.category = ct.category

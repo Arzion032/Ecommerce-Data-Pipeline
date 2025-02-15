@@ -28050,3 +28050,630 @@ JOIN E_COMMERCE_PRODUCT.products_schema_analytics.agg_category_performance AS ct
 [0m00:23:33.417277 [debug] [MainThread]: Command `dbt run` succeeded at 00:23:33.417277 after 13.15 seconds
 [0m00:23:33.418292 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F0E8CC6FF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F0CDF44920>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F0E8FAC470>]}
 [0m00:23:33.418292 [debug] [MainThread]: Flushing usage events
+[0m00:27:14.294156 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200ED590CB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200ED6AE4B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200ED590FB0>]}
+
+
+============================== 00:27:14.299158 | d0240ce8-d0a2-443d-b337-f9d479278ea4 ==============================
+[0m00:27:14.299158 [info ] [MainThread]: Running with dbt=1.8.9
+[0m00:27:14.299767 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\User\\Downloads\\0MY FILES\\DATE ENGINEERING\\Retail-Data-Pipeline\\dags\\transform', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'C:\\Users\\User\\Downloads\\0MY FILES\\DATE ENGINEERING\\Retail-Data-Pipeline\\dags\\transform\\logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt run', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m00:27:15.249421 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd0240ce8-d0a2-443d-b337-f9d479278ea4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200FFA55F40>]}
+[0m00:27:15.293421 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd0240ce8-d0a2-443d-b337-f9d479278ea4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200FFA55F10>]}
+[0m00:27:15.295410 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m00:27:15.609835 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m00:27:15.791113 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 2 files changed.
+[0m00:27:15.791113 [debug] [MainThread]: Partial parsing: updated file: transform://models\analytics\dim_products.sql
+[0m00:27:15.792113 [debug] [MainThread]: Partial parsing: updated file: transform://models\analytics\agg_category_performance.sql
+[0m00:27:15.987358 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd0240ce8-d0a2-443d-b337-f9d479278ea4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020087C868D0>]}
+[0m00:27:16.078133 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd0240ce8-d0a2-443d-b337-f9d479278ea4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020087DA1E80>]}
+[0m00:27:16.079130 [info ] [MainThread]: Found 6 models, 1 test, 575 macros
+[0m00:27:16.080139 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd0240ce8-d0a2-443d-b337-f9d479278ea4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200FFA97FB0>]}
+[0m00:27:16.082143 [info ] [MainThread]: 
+[0m00:27:16.083138 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m00:27:16.087143 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_E_COMMERCE_PRODUCT'
+[0m00:27:16.100144 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_E_COMMERCE_PRODUCT'
+[0m00:27:16.099138 [debug] [ThreadPool]: Using snowflake connection "list_E_COMMERCE_PRODUCT"
+[0m00:27:16.103167 [debug] [ThreadPool]: Using snowflake connection "list_E_COMMERCE_PRODUCT"
+[0m00:27:16.104167 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_E_COMMERCE_PRODUCT'
+[0m00:27:16.104167 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "connection_name": "list_E_COMMERCE_PRODUCT"} */
+show terse schemas in database E_COMMERCE_PRODUCT
+    limit 10000
+[0m00:27:16.105168 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "connection_name": "list_E_COMMERCE_PRODUCT"} */
+show terse schemas in database E_COMMERCE_PRODUCT
+    limit 10000
+[0m00:27:16.107167 [debug] [ThreadPool]: Using snowflake connection "list_E_COMMERCE_PRODUCT"
+[0m00:27:16.108169 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:16.108169 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:16.109168 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "connection_name": "list_E_COMMERCE_PRODUCT"} */
+show terse schemas in database E_COMMERCE_PRODUCT
+    limit 10000
+[0m00:27:16.115164 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:17.211603 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.103 seconds
+[0m00:27:17.215599 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT: Close
+[0m00:27:17.326016 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.211 seconds
+[0m00:27:17.327020 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.218 seconds
+[0m00:27:17.329016 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT: Close
+[0m00:27:17.332017 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT: Close
+[0m00:27:17.448543 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_E_COMMERCE_PRODUCT_products_schema_analytics'
+[0m00:27:17.449551 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_E_COMMERCE_PRODUCT_products_schema_intermediate'
+[0m00:27:17.459575 [debug] [ThreadPool]: Using snowflake connection "list_E_COMMERCE_PRODUCT_products_schema_intermediate"
+[0m00:27:17.461573 [debug] [ThreadPool]: Using snowflake connection "list_E_COMMERCE_PRODUCT_products_schema_analytics"
+[0m00:27:17.462559 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_E_COMMERCE_PRODUCT_products_schema'
+[0m00:27:17.462559 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT_products_schema_intermediate: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "connection_name": "list_E_COMMERCE_PRODUCT_products_schema_intermediate"} */
+show objects in E_COMMERCE_PRODUCT.products_schema_intermediate limit 10000
+[0m00:27:17.463570 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT_products_schema_analytics: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "connection_name": "list_E_COMMERCE_PRODUCT_products_schema_analytics"} */
+show objects in E_COMMERCE_PRODUCT.products_schema_analytics limit 10000
+[0m00:27:17.466097 [debug] [ThreadPool]: Using snowflake connection "list_E_COMMERCE_PRODUCT_products_schema"
+[0m00:27:17.467128 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:17.468119 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:17.468119 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT_products_schema: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "connection_name": "list_E_COMMERCE_PRODUCT_products_schema"} */
+show objects in E_COMMERCE_PRODUCT.products_schema limit 10000
+[0m00:27:17.472121 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:18.260036 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.793 seconds
+[0m00:27:18.262033 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT_products_schema_intermediate: Close
+[0m00:27:18.284518 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.817 seconds
+[0m00:27:18.286550 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT_products_schema_analytics: Close
+[0m00:27:18.395296 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.923 seconds
+[0m00:27:18.397298 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT_products_schema: Close
+[0m00:27:18.512254 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd0240ce8-d0a2-443d-b337-f9d479278ea4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002008677E690>]}
+[0m00:27:18.513199 [info ] [MainThread]: Concurrency: 10 threads (target='dev')
+[0m00:27:18.514204 [info ] [MainThread]: 
+[0m00:27:18.518899 [debug] [Thread-1 (]: Began running node model.transform.stg_products
+[0m00:27:18.519916 [info ] [Thread-1 (]: 1 of 6 START sql view model products_schema.stg_products ....................... [RUN]
+[0m00:27:18.520917 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.transform.stg_products'
+[0m00:27:18.520917 [debug] [Thread-1 (]: Began compiling node model.transform.stg_products
+[0m00:27:18.527916 [debug] [Thread-1 (]: Writing injected SQL for node "model.transform.stg_products"
+[0m00:27:18.528922 [debug] [Thread-1 (]: Began executing node model.transform.stg_products
+[0m00:27:18.555917 [debug] [Thread-1 (]: Writing runtime sql for node "model.transform.stg_products"
+[0m00:27:18.557915 [debug] [Thread-1 (]: Using snowflake connection "model.transform.stg_products"
+[0m00:27:18.557915 [debug] [Thread-1 (]: On model.transform.stg_products: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "node_id": "model.transform.stg_products"} */
+create or replace   view E_COMMERCE_PRODUCT.products_schema.stg_products
+  
+   as (
+    SELECT 
+    METADATA$FILENAME AS file_name,
+    METADATA$FILE_ROW_NUMBER AS row_number,
+    $1:"goods-title-link--jump"::STRING AS goods_title_link_jump, 
+    $1:"goods-title-link--jump href"::STRING AS goods_title_link_href, 
+    $1:"rank-title"::STRING AS rank_title,
+    $1:"rank-sub"::STRING AS rank_sub,
+    $1:"price"::STRING AS price,
+    $1:"discount"::STRING AS discount,
+    $1:"selling_proposition"::STRING AS selling_proposition,
+    $1:"goods-title-link"::STRING AS goods_title_link,
+    $1:"color-count"::INTEGER AS color_count,
+    $1:"blackfridaybelts-bg src"::STRING AS blackfridaybelts_bg_src,
+    $1:"blackfridaybelts-content"::STRING AS blackfridaybelts_content,
+FROM 
+    @product_stage
+    (file_format => 'parquet_format', pattern => '.*.parquet')
+  );
+[0m00:27:18.558918 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m00:27:19.254096 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.695 seconds
+[0m00:27:19.275091 [debug] [Thread-1 (]: On model.transform.stg_products: Close
+[0m00:27:19.384791 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd0240ce8-d0a2-443d-b337-f9d479278ea4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002008673E2A0>]}
+[0m00:27:19.385796 [info ] [Thread-1 (]: 1 of 6 OK created sql view model products_schema.stg_products .................. [[32mSUCCESS 1[0m in 0.86s]
+[0m00:27:19.386800 [debug] [Thread-1 (]: Finished running node model.transform.stg_products
+[0m00:27:19.388313 [debug] [Thread-3 (]: Began running node model.transform.int_products
+[0m00:27:19.389332 [info ] [Thread-3 (]: 2 of 6 START sql table model products_schema_intermediate.int_products ......... [RUN]
+[0m00:27:19.390328 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.transform.int_products'
+[0m00:27:19.390328 [debug] [Thread-3 (]: Began compiling node model.transform.int_products
+[0m00:27:19.395325 [debug] [Thread-3 (]: Writing injected SQL for node "model.transform.int_products"
+[0m00:27:19.396329 [debug] [Thread-3 (]: Began executing node model.transform.int_products
+[0m00:27:19.418353 [debug] [Thread-3 (]: Writing runtime sql for node "model.transform.int_products"
+[0m00:27:19.422642 [debug] [Thread-3 (]: Using snowflake connection "model.transform.int_products"
+[0m00:27:19.423649 [debug] [Thread-3 (]: On model.transform.int_products: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "node_id": "model.transform.int_products"} */
+create or replace transient table E_COMMERCE_PRODUCT.products_schema_intermediate.int_products
+         as
+        (WITH clean_cols AS 
+    (
+    SELECT
+        goods_title_link,
+        GOODS_TITLE_LINK_JUMP,
+        SPLIT("FILE_NAME", '-')[2]::STRING AS category,
+        SPLIT(LTRIM(RANK_TITLE, '#'), ' ')[0]::INTEGER AS rank_title,
+        LTRIM(INITCAP(RANK_SUB), 'In ') as rank_sub,
+        REGEXP_REPLACE(PRICE, '[$,]', '')::FLOAT AS "PRICE($)",
+        (SUBSTRING(DISCOUNT, 2, LENGTH(DISCOUNT)-2)::INTEGER / 100)::FLOAT AS DISCOUNT,
+        CASE
+            WHEN LEFT(selling_proposition, LENGTH(selling_proposition) - 15) LIKE '%k%' 
+                THEN LEFT(selling_proposition, LENGTH(selling_proposition) - 16)::FLOAT * 1000
+            ELSE LEFT(selling_proposition, LENGTH(selling_proposition) - 15)::FLOAT
+        END AS selling_proposition,
+        COLOR_COUNT,
+        LTRIM(BLACKFRIDAYBELTS_CONTENT, 'Save $')::FLOAT AS "BLACKFRIDAYBELTS_CONTENT(Save $)"
+    FROM E_COMMERCE_PRODUCT.products_schema.stg_products
+    ),
+
+null_filled AS (
+    SELECT
+        LOWER(TRIM(COALESCE(goods_title_link, 'Unknown'))) AS title,
+        LOWER(TRIM(COALESCE(GOODS_TITLE_LINK_JUMP, 'No Link Available'))) AS goods_title_link_jump,  
+        category,
+        COALESCE(rank_title, -1) AS rank_title, 
+        COALESCE(rank_sub, 'Unknown') AS rank_sub,
+        ROUND(COALESCE("PRICE($)", COALESCE(AVG("PRICE($)") OVER(PARTITION BY category),0)) ,2) AS price_dollars,
+        ROUND(COALESCE(DISCOUNT, COALESCE(AVG(DISCOUNT) OVER(PARTITION BY category),0)) ,2) AS discount,
+        COALESCE(selling_proposition, COALESCE(AVG(selling_proposition) OVER(PARTITION BY category),0))::INTEGER AS selling_proposition,
+        COALESCE(COLOR_COUNT, 0) AS "color_counts",
+        COALESCE("BLACKFRIDAYBELTS_CONTENT(Save $)", 0) AS blackfriday_savings
+    FROM clean_cols
+),
+
+unique_rows AS (
+SELECT 
+    DISTINCT *
+FROM null_filled
+)
+
+SELECT 
+    md5(cast(coalesce(cast(discount as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(price_dollars as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(title as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(selling_proposition as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(category as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(rank_sub as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(rank_title as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast("color_counts" as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) AS sk_id,
+     * 
+FROM unique_rows
+        );
+[0m00:27:19.423649 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m00:27:23.221949 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 3.798 seconds
+[0m00:27:23.223956 [debug] [Thread-3 (]: On model.transform.int_products: Close
+[0m00:27:23.338078 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd0240ce8-d0a2-443d-b337-f9d479278ea4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020088295670>]}
+[0m00:27:23.339078 [info ] [Thread-3 (]: 2 of 6 OK created sql table model products_schema_intermediate.int_products .... [[32mSUCCESS 1[0m in 3.95s]
+[0m00:27:23.340083 [debug] [Thread-3 (]: Finished running node model.transform.int_products
+[0m00:27:23.341083 [debug] [Thread-5 (]: Began running node model.transform.dim_category
+[0m00:27:23.342072 [info ] [Thread-5 (]: 3 of 6 START sql table model products_schema_analytics.dim_category ............ [RUN]
+[0m00:27:23.343069 [debug] [Thread-5 (]: Acquiring new snowflake connection 'model.transform.dim_category'
+[0m00:27:23.344081 [debug] [Thread-5 (]: Began compiling node model.transform.dim_category
+[0m00:27:23.347086 [debug] [Thread-5 (]: Writing injected SQL for node "model.transform.dim_category"
+[0m00:27:23.348084 [debug] [Thread-5 (]: Began executing node model.transform.dim_category
+[0m00:27:23.351082 [debug] [Thread-5 (]: Writing runtime sql for node "model.transform.dim_category"
+[0m00:27:23.353080 [debug] [Thread-5 (]: Using snowflake connection "model.transform.dim_category"
+[0m00:27:23.353080 [debug] [Thread-5 (]: On model.transform.dim_category: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "node_id": "model.transform.dim_category"} */
+create or replace transient table E_COMMERCE_PRODUCT.products_schema_analytics.dim_category
+         as
+        (WITH cat_desc AS
+(
+    SELECT 
+        DISTINCT category
+    FROM E_COMMERCE_PRODUCT.products_schema_intermediate.int_products
+)
+
+SELECT 
+    md5(cast(coalesce(cast(category as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) AS category_id,
+    category
+FROM cat_desc
+        );
+[0m00:27:23.354086 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m00:27:25.838008 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 2.484 seconds
+[0m00:27:25.840020 [debug] [Thread-5 (]: On model.transform.dim_category: Close
+[0m00:27:25.959886 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd0240ce8-d0a2-443d-b337-f9d479278ea4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200882972C0>]}
+[0m00:27:25.960893 [info ] [Thread-5 (]: 3 of 6 OK created sql table model products_schema_analytics.dim_category ....... [[32mSUCCESS 1[0m in 2.62s]
+[0m00:27:25.961887 [debug] [Thread-5 (]: Finished running node model.transform.dim_category
+[0m00:27:25.962889 [debug] [Thread-7 (]: Began running node model.transform.agg_category_performance
+[0m00:27:25.962889 [debug] [Thread-8 (]: Began running node model.transform.dim_products
+[0m00:27:25.963891 [info ] [Thread-7 (]: 4 of 6 START sql table model products_schema_analytics.agg_category_performance  [RUN]
+[0m00:27:25.965893 [debug] [Thread-7 (]: Acquiring new snowflake connection 'model.transform.agg_category_performance'
+[0m00:27:25.964879 [info ] [Thread-8 (]: 5 of 6 START sql table model products_schema_analytics.dim_products ............ [RUN]
+[0m00:27:25.965893 [debug] [Thread-7 (]: Began compiling node model.transform.agg_category_performance
+[0m00:27:25.966890 [debug] [Thread-8 (]: Acquiring new snowflake connection 'model.transform.dim_products'
+[0m00:27:25.970891 [debug] [Thread-7 (]: Writing injected SQL for node "model.transform.agg_category_performance"
+[0m00:27:25.971896 [debug] [Thread-8 (]: Began compiling node model.transform.dim_products
+[0m00:27:25.972889 [debug] [Thread-7 (]: Began executing node model.transform.agg_category_performance
+[0m00:27:25.975895 [debug] [Thread-8 (]: Writing injected SQL for node "model.transform.dim_products"
+[0m00:27:25.978895 [debug] [Thread-7 (]: Writing runtime sql for node "model.transform.agg_category_performance"
+[0m00:27:25.980890 [debug] [Thread-8 (]: Began executing node model.transform.dim_products
+[0m00:27:25.983419 [debug] [Thread-8 (]: Writing runtime sql for node "model.transform.dim_products"
+[0m00:27:25.984412 [debug] [Thread-7 (]: Using snowflake connection "model.transform.agg_category_performance"
+[0m00:27:25.985412 [debug] [Thread-7 (]: On model.transform.agg_category_performance: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "node_id": "model.transform.agg_category_performance"} */
+create or replace transient table E_COMMERCE_PRODUCT.products_schema_analytics.agg_category_performance
+         as
+        (WITH cols_to_keep AS
+(
+    SELECT 
+        inttable.category AS category,
+        ROUND(AVG(price_dollars), 2) AS avg_price_dollars,
+        ROUND(AVG(discount), 2) AS avg_discount,
+        ROUND(AVG(selling_proposition), 2) AS avg_sold_proposition,
+        COUNT(*) AS total_products,
+    FROM E_COMMERCE_PRODUCT.products_schema_intermediate.int_products AS inttable
+    JOIN E_COMMERCE_PRODUCT.products_schema_analytics.dim_category AS ct
+    ON inttable.category = ct.category
+    GROUP BY inttable.category
+    ORDER BY avg_price_dollars DESC
+),
+
+id_generated AS 
+(
+    SELECT 
+        md5(cast(coalesce(cast(category as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) AS category_id,
+        avg_price_dollars,s
+        avg_discount,
+        avg_sold_proposition
+    FROM cols_to_keep
+)
+
+SELECT 
+    *       
+FROM id_generated
+        );
+[0m00:27:25.986417 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m00:27:25.987411 [debug] [Thread-8 (]: Using snowflake connection "model.transform.dim_products"
+[0m00:27:25.989418 [debug] [Thread-8 (]: On model.transform.dim_products: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "node_id": "model.transform.dim_products"} */
+create or replace transient table E_COMMERCE_PRODUCT.products_schema_analytics.dim_products
+         as
+        (SELECT 
+    inttable.sk_id AS prod_id,
+    inttable.title,
+    ct.category_id,
+    inttable.rank_title,
+    inttable.rank_sub,
+    inttable.GOODS_TITLE_LINK_JUMP,
+    inttable."color_counts",
+    inttable.blackfriday_savings
+FROM E_COMMERCE_PRODUCT.products_schema_intermediate.int_products AS inttable
+JOIN E_COMMERCE_PRODUCT.products_schema_analytics.dim_category AS ct
+    ON inttable.category = ct.category
+        );
+[0m00:27:25.990420 [debug] [Thread-8 (]: Opening a new connection, currently in state init
+[0m00:27:26.698656 [debug] [Thread-7 (]: Snowflake adapter: Snowflake query id: 01ba699b-0000-fcd1-0001-4c5e000d339a
+[0m00:27:26.698656 [debug] [Thread-7 (]: Snowflake adapter: Snowflake error: 000904 (42000): SQL compilation error: error line 22 at position 26
+invalid identifier 'S'
+[0m00:27:26.699667 [debug] [Thread-7 (]: On model.transform.agg_category_performance: Close
+[0m00:27:26.814671 [debug] [Thread-7 (]: Database Error in model agg_category_performance (models\analytics\agg_category_performance.sql)
+  000904 (42000): SQL compilation error: error line 22 at position 26
+  invalid identifier 'S'
+  compiled code at target\run\transform\models\analytics\agg_category_performance.sql
+[0m00:27:26.814671 [debug] [Thread-7 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd0240ce8-d0a2-443d-b337-f9d479278ea4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200E9BCFA40>]}
+[0m00:27:26.815679 [error] [Thread-7 (]: 4 of 6 ERROR creating sql table model products_schema_analytics.agg_category_performance  [[31mERROR[0m in 0.85s]
+[0m00:27:26.817679 [debug] [Thread-7 (]: Finished running node model.transform.agg_category_performance
+[0m00:27:26.818688 [debug] [Thread-10 ]: Began running node model.transform.fact_products_performance
+[0m00:27:26.819679 [info ] [Thread-10 ]: 6 of 6 SKIP relation products_schema_analytics.fact_products_performance ....... [[33mSKIP[0m]
+[0m00:27:26.820680 [debug] [Thread-10 ]: Finished running node model.transform.fact_products_performance
+[0m00:27:27.663385 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 1.672 seconds
+[0m00:27:27.665384 [debug] [Thread-8 (]: On model.transform.dim_products: Close
+[0m00:27:27.781174 [debug] [Thread-8 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd0240ce8-d0a2-443d-b337-f9d479278ea4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020088236E40>]}
+[0m00:27:27.782173 [info ] [Thread-8 (]: 5 of 6 OK created sql table model products_schema_analytics.dim_products ....... [[32mSUCCESS 1[0m in 1.81s]
+[0m00:27:27.784173 [debug] [Thread-8 (]: Finished running node model.transform.dim_products
+[0m00:27:27.786174 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:27:27.787176 [debug] [MainThread]: Connection 'list_E_COMMERCE_PRODUCT' was properly closed.
+[0m00:27:27.787176 [debug] [MainThread]: Connection 'list_E_COMMERCE_PRODUCT' was properly closed.
+[0m00:27:27.787176 [debug] [MainThread]: Connection 'list_E_COMMERCE_PRODUCT' was properly closed.
+[0m00:27:27.788175 [debug] [MainThread]: Connection 'list_E_COMMERCE_PRODUCT_products_schema_analytics' was properly closed.
+[0m00:27:27.788175 [debug] [MainThread]: Connection 'list_E_COMMERCE_PRODUCT_products_schema_intermediate' was properly closed.
+[0m00:27:27.789174 [debug] [MainThread]: Connection 'list_E_COMMERCE_PRODUCT_products_schema' was properly closed.
+[0m00:27:27.789174 [debug] [MainThread]: Connection 'model.transform.stg_products' was properly closed.
+[0m00:27:27.789174 [debug] [MainThread]: Connection 'model.transform.int_products' was properly closed.
+[0m00:27:27.790174 [debug] [MainThread]: Connection 'model.transform.dim_category' was properly closed.
+[0m00:27:27.790174 [debug] [MainThread]: Connection 'model.transform.agg_category_performance' was properly closed.
+[0m00:27:27.791165 [debug] [MainThread]: Connection 'model.transform.dim_products' was properly closed.
+[0m00:27:27.791165 [info ] [MainThread]: 
+[0m00:27:27.792163 [info ] [MainThread]: Finished running 1 view model, 5 table models in 0 hours 0 minutes and 11.71 seconds (11.71s).
+[0m00:27:27.794163 [debug] [MainThread]: Command end result
+[0m00:27:27.826170 [info ] [MainThread]: 
+[0m00:27:27.827169 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m00:27:27.828171 [info ] [MainThread]: 
+[0m00:27:27.829176 [error] [MainThread]:   Database Error in model agg_category_performance (models\analytics\agg_category_performance.sql)
+  000904 (42000): SQL compilation error: error line 22 at position 26
+  invalid identifier 'S'
+  compiled code at target\run\transform\models\analytics\agg_category_performance.sql
+[0m00:27:27.830174 [info ] [MainThread]: 
+[0m00:27:27.831684 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=1 SKIP=1 TOTAL=6
+[0m00:27:27.833691 [debug] [MainThread]: Command `dbt run` failed at 00:27:27.833691 after 13.64 seconds
+[0m00:27:27.833691 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200ED7F7230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200FF25E2A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020086B90CE0>]}
+[0m00:27:27.834691 [debug] [MainThread]: Flushing usage events
+[0m00:27:45.936474 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000028783290170>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000287836C0FE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000287836C1940>]}
+
+
+============================== 00:27:45.940833 | 30084629-b0cb-4168-9872-4372589f760c ==============================
+[0m00:27:45.940833 [info ] [MainThread]: Running with dbt=1.8.9
+[0m00:27:45.941843 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'C:\\Users\\User\\Downloads\\0MY FILES\\DATE ENGINEERING\\Retail-Data-Pipeline\\dags\\transform\\logs', 'version_check': 'True', 'profiles_dir': 'C:\\Users\\User\\Downloads\\0MY FILES\\DATE ENGINEERING\\Retail-Data-Pipeline\\dags\\transform', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'invocation_command': 'dbt run', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m00:27:46.916758 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '30084629-b0cb-4168-9872-4372589f760c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000287836F0F80>]}
+[0m00:27:46.962321 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '30084629-b0cb-4168-9872-4372589f760c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879B255F10>]}
+[0m00:27:46.964090 [info ] [MainThread]: Registered adapter: snowflake=1.8.4
+[0m00:27:47.280117 [debug] [MainThread]: checksum: 132857a23e9d07220246854f7763165174ce9b737cfc7867629ace4294e520b1, vars: {}, profile: , target: , version: 1.8.9
+[0m00:27:47.442812 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m00:27:47.442812 [debug] [MainThread]: Partial parsing: updated file: transform://models\analytics\agg_category_performance.sql
+[0m00:27:47.641132 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '30084629-b0cb-4168-9872-4372589f760c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879DB92A20>]}
+[0m00:27:47.735041 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '30084629-b0cb-4168-9872-4372589f760c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879C8AA660>]}
+[0m00:27:47.736042 [info ] [MainThread]: Found 6 models, 1 test, 575 macros
+[0m00:27:47.737054 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '30084629-b0cb-4168-9872-4372589f760c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879C347FB0>]}
+[0m00:27:47.738050 [info ] [MainThread]: 
+[0m00:27:47.739047 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m00:27:47.743892 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_E_COMMERCE_PRODUCT'
+[0m00:27:47.751916 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_E_COMMERCE_PRODUCT'
+[0m00:27:47.756441 [debug] [ThreadPool]: Using snowflake connection "list_E_COMMERCE_PRODUCT"
+[0m00:27:47.757443 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_E_COMMERCE_PRODUCT'
+[0m00:27:47.760442 [debug] [ThreadPool]: Using snowflake connection "list_E_COMMERCE_PRODUCT"
+[0m00:27:47.761444 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "connection_name": "list_E_COMMERCE_PRODUCT"} */
+show terse schemas in database E_COMMERCE_PRODUCT
+    limit 10000
+[0m00:27:47.765443 [debug] [ThreadPool]: Using snowflake connection "list_E_COMMERCE_PRODUCT"
+[0m00:27:47.766441 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "connection_name": "list_E_COMMERCE_PRODUCT"} */
+show terse schemas in database E_COMMERCE_PRODUCT
+    limit 10000
+[0m00:27:47.766441 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:47.767444 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "connection_name": "list_E_COMMERCE_PRODUCT"} */
+show terse schemas in database E_COMMERCE_PRODUCT
+    limit 10000
+[0m00:27:47.768442 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:47.771445 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:48.759526 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.989 seconds
+[0m00:27:48.761527 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT: Close
+[0m00:27:48.763534 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.996 seconds
+[0m00:27:48.765524 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT: Close
+[0m00:27:48.809434 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.042 seconds
+[0m00:27:48.811429 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT: Close
+[0m00:27:48.926320 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_E_COMMERCE_PRODUCT_products_schema'
+[0m00:27:48.927320 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_E_COMMERCE_PRODUCT_products_schema_analytics'
+[0m00:27:48.936319 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_E_COMMERCE_PRODUCT_products_schema_intermediate'
+[0m00:27:48.937315 [debug] [ThreadPool]: Using snowflake connection "list_E_COMMERCE_PRODUCT_products_schema"
+[0m00:27:48.940332 [debug] [ThreadPool]: Using snowflake connection "list_E_COMMERCE_PRODUCT_products_schema_analytics"
+[0m00:27:48.943426 [debug] [ThreadPool]: Using snowflake connection "list_E_COMMERCE_PRODUCT_products_schema_intermediate"
+[0m00:27:48.944392 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT_products_schema: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "connection_name": "list_E_COMMERCE_PRODUCT_products_schema"} */
+show objects in E_COMMERCE_PRODUCT.products_schema limit 10000
+[0m00:27:48.945058 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT_products_schema_analytics: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "connection_name": "list_E_COMMERCE_PRODUCT_products_schema_analytics"} */
+show objects in E_COMMERCE_PRODUCT.products_schema_analytics limit 10000
+[0m00:27:48.946086 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT_products_schema_intermediate: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "connection_name": "list_E_COMMERCE_PRODUCT_products_schema_intermediate"} */
+show objects in E_COMMERCE_PRODUCT.products_schema_intermediate limit 10000
+[0m00:27:48.946086 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:48.947085 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:48.947085 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:49.775598 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 0.829 seconds
+[0m00:27:49.777592 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT_products_schema_analytics: Close
+[0m00:27:49.896701 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.950 seconds
+[0m00:27:49.897701 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT_products_schema: Close
+[0m00:27:49.909844 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.962 seconds
+[0m00:27:49.910847 [debug] [ThreadPool]: On list_E_COMMERCE_PRODUCT_products_schema_intermediate: Close
+[0m00:27:50.031163 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '30084629-b0cb-4168-9872-4372589f760c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879DAF5BB0>]}
+[0m00:27:50.032154 [info ] [MainThread]: Concurrency: 10 threads (target='dev')
+[0m00:27:50.032154 [info ] [MainThread]: 
+[0m00:27:50.038465 [debug] [Thread-1 (]: Began running node model.transform.stg_products
+[0m00:27:50.039470 [info ] [Thread-1 (]: 1 of 6 START sql view model products_schema.stg_products ....................... [RUN]
+[0m00:27:50.040469 [debug] [Thread-1 (]: Acquiring new snowflake connection 'model.transform.stg_products'
+[0m00:27:50.040469 [debug] [Thread-1 (]: Began compiling node model.transform.stg_products
+[0m00:27:50.047481 [debug] [Thread-1 (]: Writing injected SQL for node "model.transform.stg_products"
+[0m00:27:50.048471 [debug] [Thread-1 (]: Began executing node model.transform.stg_products
+[0m00:27:50.075003 [debug] [Thread-1 (]: Writing runtime sql for node "model.transform.stg_products"
+[0m00:27:50.076988 [debug] [Thread-1 (]: Using snowflake connection "model.transform.stg_products"
+[0m00:27:50.076988 [debug] [Thread-1 (]: On model.transform.stg_products: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "node_id": "model.transform.stg_products"} */
+create or replace   view E_COMMERCE_PRODUCT.products_schema.stg_products
+  
+   as (
+    SELECT 
+    METADATA$FILENAME AS file_name,
+    METADATA$FILE_ROW_NUMBER AS row_number,
+    $1:"goods-title-link--jump"::STRING AS goods_title_link_jump, 
+    $1:"goods-title-link--jump href"::STRING AS goods_title_link_href, 
+    $1:"rank-title"::STRING AS rank_title,
+    $1:"rank-sub"::STRING AS rank_sub,
+    $1:"price"::STRING AS price,
+    $1:"discount"::STRING AS discount,
+    $1:"selling_proposition"::STRING AS selling_proposition,
+    $1:"goods-title-link"::STRING AS goods_title_link,
+    $1:"color-count"::INTEGER AS color_count,
+    $1:"blackfridaybelts-bg src"::STRING AS blackfridaybelts_bg_src,
+    $1:"blackfridaybelts-content"::STRING AS blackfridaybelts_content,
+FROM 
+    @product_stage
+    (file_format => 'parquet_format', pattern => '.*.parquet')
+  );
+[0m00:27:50.077999 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m00:27:50.777857 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.700 seconds
+[0m00:27:50.797861 [debug] [Thread-1 (]: On model.transform.stg_products: Close
+[0m00:27:50.908813 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '30084629-b0cb-4168-9872-4372589f760c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879C56A660>]}
+[0m00:27:50.908813 [info ] [Thread-1 (]: 1 of 6 OK created sql view model products_schema.stg_products .................. [[32mSUCCESS 1[0m in 0.87s]
+[0m00:27:50.910816 [debug] [Thread-1 (]: Finished running node model.transform.stg_products
+[0m00:27:50.911800 [debug] [Thread-3 (]: Began running node model.transform.int_products
+[0m00:27:50.912802 [info ] [Thread-3 (]: 2 of 6 START sql table model products_schema_intermediate.int_products ......... [RUN]
+[0m00:27:50.913801 [debug] [Thread-3 (]: Acquiring new snowflake connection 'model.transform.int_products'
+[0m00:27:50.914811 [debug] [Thread-3 (]: Began compiling node model.transform.int_products
+[0m00:27:50.919814 [debug] [Thread-3 (]: Writing injected SQL for node "model.transform.int_products"
+[0m00:27:50.921806 [debug] [Thread-3 (]: Began executing node model.transform.int_products
+[0m00:27:50.942831 [debug] [Thread-3 (]: Writing runtime sql for node "model.transform.int_products"
+[0m00:27:50.946825 [debug] [Thread-3 (]: Using snowflake connection "model.transform.int_products"
+[0m00:27:50.947825 [debug] [Thread-3 (]: On model.transform.int_products: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "node_id": "model.transform.int_products"} */
+create or replace transient table E_COMMERCE_PRODUCT.products_schema_intermediate.int_products
+         as
+        (WITH clean_cols AS 
+    (
+    SELECT
+        goods_title_link,
+        GOODS_TITLE_LINK_JUMP,
+        SPLIT("FILE_NAME", '-')[2]::STRING AS category,
+        SPLIT(LTRIM(RANK_TITLE, '#'), ' ')[0]::INTEGER AS rank_title,
+        LTRIM(INITCAP(RANK_SUB), 'In ') as rank_sub,
+        REGEXP_REPLACE(PRICE, '[$,]', '')::FLOAT AS "PRICE($)",
+        (SUBSTRING(DISCOUNT, 2, LENGTH(DISCOUNT)-2)::INTEGER / 100)::FLOAT AS DISCOUNT,
+        CASE
+            WHEN LEFT(selling_proposition, LENGTH(selling_proposition) - 15) LIKE '%k%' 
+                THEN LEFT(selling_proposition, LENGTH(selling_proposition) - 16)::FLOAT * 1000
+            ELSE LEFT(selling_proposition, LENGTH(selling_proposition) - 15)::FLOAT
+        END AS selling_proposition,
+        COLOR_COUNT,
+        LTRIM(BLACKFRIDAYBELTS_CONTENT, 'Save $')::FLOAT AS "BLACKFRIDAYBELTS_CONTENT(Save $)"
+    FROM E_COMMERCE_PRODUCT.products_schema.stg_products
+    ),
+
+null_filled AS (
+    SELECT
+        LOWER(TRIM(COALESCE(goods_title_link, 'Unknown'))) AS title,
+        LOWER(TRIM(COALESCE(GOODS_TITLE_LINK_JUMP, 'No Link Available'))) AS goods_title_link_jump,  
+        category,
+        COALESCE(rank_title, -1) AS rank_title, 
+        COALESCE(rank_sub, 'Unknown') AS rank_sub,
+        ROUND(COALESCE("PRICE($)", COALESCE(AVG("PRICE($)") OVER(PARTITION BY category),0)) ,2) AS price_dollars,
+        ROUND(COALESCE(DISCOUNT, COALESCE(AVG(DISCOUNT) OVER(PARTITION BY category),0)) ,2) AS discount,
+        COALESCE(selling_proposition, COALESCE(AVG(selling_proposition) OVER(PARTITION BY category),0))::INTEGER AS selling_proposition,
+        COALESCE(COLOR_COUNT, 0) AS "color_counts",
+        COALESCE("BLACKFRIDAYBELTS_CONTENT(Save $)", 0) AS blackfriday_savings
+    FROM clean_cols
+),
+
+unique_rows AS (
+SELECT 
+    DISTINCT *
+FROM null_filled
+)
+
+SELECT 
+    md5(cast(coalesce(cast(discount as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(price_dollars as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(title as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(selling_proposition as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(category as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(rank_sub as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast(rank_title as TEXT), '_dbt_utils_surrogate_key_null_') || '-' || coalesce(cast("color_counts" as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) AS sk_id,
+     * 
+FROM unique_rows
+        );
+[0m00:27:50.948823 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m00:27:52.769307 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.820 seconds
+[0m00:27:52.771306 [debug] [Thread-3 (]: On model.transform.int_products: Close
+[0m00:27:52.882569 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '30084629-b0cb-4168-9872-4372589f760c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879C94B860>]}
+[0m00:27:52.883573 [info ] [Thread-3 (]: 2 of 6 OK created sql table model products_schema_intermediate.int_products .... [[32mSUCCESS 1[0m in 1.97s]
+[0m00:27:52.884568 [debug] [Thread-3 (]: Finished running node model.transform.int_products
+[0m00:27:52.885574 [debug] [Thread-5 (]: Began running node model.transform.dim_category
+[0m00:27:52.886580 [info ] [Thread-5 (]: 3 of 6 START sql table model products_schema_analytics.dim_category ............ [RUN]
+[0m00:27:52.887580 [debug] [Thread-5 (]: Acquiring new snowflake connection 'model.transform.dim_category'
+[0m00:27:52.888578 [debug] [Thread-5 (]: Began compiling node model.transform.dim_category
+[0m00:27:52.891578 [debug] [Thread-5 (]: Writing injected SQL for node "model.transform.dim_category"
+[0m00:27:52.893572 [debug] [Thread-5 (]: Began executing node model.transform.dim_category
+[0m00:27:52.895582 [debug] [Thread-5 (]: Writing runtime sql for node "model.transform.dim_category"
+[0m00:27:52.897574 [debug] [Thread-5 (]: Using snowflake connection "model.transform.dim_category"
+[0m00:27:52.898574 [debug] [Thread-5 (]: On model.transform.dim_category: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "node_id": "model.transform.dim_category"} */
+create or replace transient table E_COMMERCE_PRODUCT.products_schema_analytics.dim_category
+         as
+        (WITH cat_desc AS
+(
+    SELECT 
+        DISTINCT category
+    FROM E_COMMERCE_PRODUCT.products_schema_intermediate.int_products
+)
+
+SELECT 
+    md5(cast(coalesce(cast(category as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) AS category_id,
+    category
+FROM cat_desc
+        );
+[0m00:27:52.898574 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m00:27:55.437370 [debug] [Thread-5 (]: SQL status: SUCCESS 1 in 2.538 seconds
+[0m00:27:55.439372 [debug] [Thread-5 (]: On model.transform.dim_category: Close
+[0m00:27:55.565016 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '30084629-b0cb-4168-9872-4372589f760c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000287FFA5F5C0>]}
+[0m00:27:55.566034 [info ] [Thread-5 (]: 3 of 6 OK created sql table model products_schema_analytics.dim_category ....... [[32mSUCCESS 1[0m in 2.68s]
+[0m00:27:55.567014 [debug] [Thread-5 (]: Finished running node model.transform.dim_category
+[0m00:27:55.568016 [debug] [Thread-7 (]: Began running node model.transform.agg_category_performance
+[0m00:27:55.568016 [debug] [Thread-8 (]: Began running node model.transform.dim_products
+[0m00:27:55.569020 [info ] [Thread-7 (]: 4 of 6 START sql table model products_schema_analytics.agg_category_performance  [RUN]
+[0m00:27:55.571015 [debug] [Thread-7 (]: Acquiring new snowflake connection 'model.transform.agg_category_performance'
+[0m00:27:55.570019 [info ] [Thread-8 (]: 5 of 6 START sql table model products_schema_analytics.dim_products ............ [RUN]
+[0m00:27:55.571015 [debug] [Thread-7 (]: Began compiling node model.transform.agg_category_performance
+[0m00:27:55.572015 [debug] [Thread-8 (]: Acquiring new snowflake connection 'model.transform.dim_products'
+[0m00:27:55.576011 [debug] [Thread-7 (]: Writing injected SQL for node "model.transform.agg_category_performance"
+[0m00:27:55.577012 [debug] [Thread-8 (]: Began compiling node model.transform.dim_products
+[0m00:27:55.581010 [debug] [Thread-8 (]: Writing injected SQL for node "model.transform.dim_products"
+[0m00:27:55.582017 [debug] [Thread-7 (]: Began executing node model.transform.agg_category_performance
+[0m00:27:55.585016 [debug] [Thread-7 (]: Writing runtime sql for node "model.transform.agg_category_performance"
+[0m00:27:55.586011 [debug] [Thread-8 (]: Began executing node model.transform.dim_products
+[0m00:27:55.589017 [debug] [Thread-8 (]: Writing runtime sql for node "model.transform.dim_products"
+[0m00:27:55.591011 [debug] [Thread-7 (]: Using snowflake connection "model.transform.agg_category_performance"
+[0m00:27:55.592012 [debug] [Thread-8 (]: Using snowflake connection "model.transform.dim_products"
+[0m00:27:55.593016 [debug] [Thread-7 (]: On model.transform.agg_category_performance: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "node_id": "model.transform.agg_category_performance"} */
+create or replace transient table E_COMMERCE_PRODUCT.products_schema_analytics.agg_category_performance
+         as
+        (WITH cols_to_keep AS
+(
+    SELECT 
+        inttable.category AS category,
+        ROUND(AVG(price_dollars), 2) AS avg_price_dollars,
+        ROUND(AVG(discount), 2) AS avg_discount,
+        ROUND(AVG(selling_proposition), 2) AS avg_sold_proposition,
+        COUNT(*) AS total_products,
+    FROM E_COMMERCE_PRODUCT.products_schema_intermediate.int_products AS inttable
+    JOIN E_COMMERCE_PRODUCT.products_schema_analytics.dim_category AS ct
+    ON inttable.category = ct.category
+    GROUP BY inttable.category
+    ORDER BY avg_price_dollars DESC
+),
+
+id_generated AS 
+(
+    SELECT 
+        md5(cast(coalesce(cast(category as TEXT), '_dbt_utils_surrogate_key_null_') as TEXT)) AS category_id,
+        avg_price_dollars,
+        avg_discount,
+        avg_sold_proposition
+    FROM cols_to_keep
+)
+
+SELECT 
+    *       
+FROM id_generated
+        );
+[0m00:27:55.594021 [debug] [Thread-8 (]: On model.transform.dim_products: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "node_id": "model.transform.dim_products"} */
+create or replace transient table E_COMMERCE_PRODUCT.products_schema_analytics.dim_products
+         as
+        (SELECT 
+    inttable.sk_id AS prod_id,
+    inttable.title,
+    ct.category_id,
+    inttable.rank_title,
+    inttable.rank_sub,
+    inttable.GOODS_TITLE_LINK_JUMP,
+    inttable."color_counts",
+    inttable.blackfriday_savings
+FROM E_COMMERCE_PRODUCT.products_schema_intermediate.int_products AS inttable
+JOIN E_COMMERCE_PRODUCT.products_schema_analytics.dim_category AS ct
+    ON inttable.category = ct.category
+        );
+[0m00:27:55.594021 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m00:27:55.595014 [debug] [Thread-8 (]: Opening a new connection, currently in state init
+[0m00:27:58.533528 [debug] [Thread-7 (]: SQL status: SUCCESS 1 in 2.939 seconds
+[0m00:27:58.535544 [debug] [Thread-7 (]: On model.transform.agg_category_performance: Close
+[0m00:27:58.642486 [debug] [Thread-7 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '30084629-b0cb-4168-9872-4372589f760c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879DFC0260>]}
+[0m00:27:58.643486 [info ] [Thread-7 (]: 4 of 6 OK created sql table model products_schema_analytics.agg_category_performance  [[32mSUCCESS 1[0m in 3.07s]
+[0m00:27:58.644478 [debug] [Thread-7 (]: Finished running node model.transform.agg_category_performance
+[0m00:27:58.644478 [debug] [Thread-10 ]: Began running node model.transform.fact_products_performance
+[0m00:27:58.645480 [info ] [Thread-10 ]: 6 of 6 START sql table model products_schema_analytics.fact_products_performance  [RUN]
+[0m00:27:58.646478 [debug] [Thread-10 ]: Acquiring new snowflake connection 'model.transform.fact_products_performance'
+[0m00:27:58.647489 [debug] [Thread-10 ]: Began compiling node model.transform.fact_products_performance
+[0m00:27:58.650518 [debug] [Thread-10 ]: Writing injected SQL for node "model.transform.fact_products_performance"
+[0m00:27:58.651521 [debug] [Thread-10 ]: Began executing node model.transform.fact_products_performance
+[0m00:27:58.655512 [debug] [Thread-10 ]: Writing runtime sql for node "model.transform.fact_products_performance"
+[0m00:27:58.656610 [debug] [Thread-10 ]: Using snowflake connection "model.transform.fact_products_performance"
+[0m00:27:58.657499 [debug] [Thread-10 ]: On model.transform.fact_products_performance: /* {"app": "dbt", "dbt_version": "1.8.9", "profile_name": "e-commerce", "target_name": "dev", "node_id": "model.transform.fact_products_performance"} */
+create or replace transient table E_COMMERCE_PRODUCT.products_schema_analytics.fact_products_performance
+         as
+        (SELECT 
+    sk_id AS prod_id,
+    ct.category_id,
+    price_dollars,
+    discount,
+    selling_proposition,
+    blackfriday_savings
+FROM E_COMMERCE_PRODUCT.products_schema_intermediate.int_products AS inttable
+JOIN E_COMMERCE_PRODUCT.products_schema_analytics.agg_category_performance AS ct
+        );
+[0m00:27:58.658499 [debug] [Thread-10 ]: Opening a new connection, currently in state init
+[0m00:27:58.670026 [debug] [Thread-8 (]: SQL status: SUCCESS 1 in 3.075 seconds
+[0m00:27:58.672028 [debug] [Thread-8 (]: On model.transform.dim_products: Close
+[0m00:27:58.785308 [debug] [Thread-8 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '30084629-b0cb-4168-9872-4372589f760c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879E0E3E90>]}
+[0m00:27:58.786306 [info ] [Thread-8 (]: 5 of 6 OK created sql table model products_schema_analytics.dim_products ....... [[32mSUCCESS 1[0m in 3.21s]
+[0m00:27:58.787307 [debug] [Thread-8 (]: Finished running node model.transform.dim_products
+[0m00:28:00.019566 [debug] [Thread-10 ]: SQL status: SUCCESS 1 in 1.361 seconds
+[0m00:28:00.022573 [debug] [Thread-10 ]: On model.transform.fact_products_performance: Close
+[0m00:28:00.136192 [debug] [Thread-10 ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '30084629-b0cb-4168-9872-4372589f760c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879E0C1B50>]}
+[0m00:28:00.136192 [info ] [Thread-10 ]: 6 of 6 OK created sql table model products_schema_analytics.fact_products_performance  [[32mSUCCESS 1[0m in 1.49s]
+[0m00:28:00.138187 [debug] [Thread-10 ]: Finished running node model.transform.fact_products_performance
+[0m00:28:00.140187 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:28:00.141180 [debug] [MainThread]: Connection 'list_E_COMMERCE_PRODUCT' was properly closed.
+[0m00:28:00.141180 [debug] [MainThread]: Connection 'list_E_COMMERCE_PRODUCT' was properly closed.
+[0m00:28:00.141180 [debug] [MainThread]: Connection 'list_E_COMMERCE_PRODUCT' was properly closed.
+[0m00:28:00.142187 [debug] [MainThread]: Connection 'list_E_COMMERCE_PRODUCT_products_schema' was properly closed.
+[0m00:28:00.142187 [debug] [MainThread]: Connection 'list_E_COMMERCE_PRODUCT_products_schema_analytics' was properly closed.
+[0m00:28:00.143187 [debug] [MainThread]: Connection 'list_E_COMMERCE_PRODUCT_products_schema_intermediate' was properly closed.
+[0m00:28:00.143187 [debug] [MainThread]: Connection 'model.transform.stg_products' was properly closed.
+[0m00:28:00.144186 [debug] [MainThread]: Connection 'model.transform.int_products' was properly closed.
+[0m00:28:00.144186 [debug] [MainThread]: Connection 'model.transform.dim_category' was properly closed.
+[0m00:28:00.144186 [debug] [MainThread]: Connection 'model.transform.agg_category_performance' was properly closed.
+[0m00:28:00.145186 [debug] [MainThread]: Connection 'model.transform.dim_products' was properly closed.
+[0m00:28:00.145186 [debug] [MainThread]: Connection 'model.transform.fact_products_performance' was properly closed.
+[0m00:28:00.146177 [info ] [MainThread]: 
+[0m00:28:00.147177 [info ] [MainThread]: Finished running 1 view model, 5 table models in 0 hours 0 minutes and 12.41 seconds (12.41s).
+[0m00:28:00.149201 [debug] [MainThread]: Command end result
+[0m00:28:00.178741 [info ] [MainThread]: 
+[0m00:28:00.180744 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m00:28:00.180744 [info ] [MainThread]: 
+[0m00:28:00.181749 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[0m00:28:00.183741 [debug] [MainThread]: Command `dbt run` succeeded at 00:28:00.183741 after 14.35 seconds
+[0m00:28:00.183741 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879C56A660>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879DA6C980>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002879C948680>]}
+[0m00:28:00.184741 [debug] [MainThread]: Flushing usage events

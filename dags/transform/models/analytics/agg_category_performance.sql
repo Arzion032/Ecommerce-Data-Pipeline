@@ -17,7 +17,7 @@ id_generated AS
 (
     SELECT 
         {{ dbt_utils.generate_surrogate_key(['category']) }} AS category_id,
-        avg_price_dollars,s
+        avg_price_dollars,
         avg_discount,
         avg_sold_proposition
     FROM cols_to_keep
