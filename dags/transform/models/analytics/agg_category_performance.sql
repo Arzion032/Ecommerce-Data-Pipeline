@@ -1,28 +1,25 @@
-WITH cols_to_keep AS
+WITH cat_perf AS
 (
-    SELECT 
-        inttable.category AS category,
-        ROUND(AVG(price_dollars), 2) AS avg_price_dollars,
-        ROUND(AVG(discount), 2) AS avg_discount,
-        ROUND(AVG(selling_proposition), 2) AS avg_sold_proposition,
+    SELECT
+        ct.category AS category,
+        SUM(fct_prod.price_dollars * fct_prod.selling_proposition) AS revenue,
+        SUM(fct_prod.selling_proposition) AS total_units_sold,
+        ROUND(AVG(fct_prod.price_dollars), 2) AS avg_price_dollars,
+        ROUND(AVG(fct_prod.discount), 2) AS avg_discount,
         COUNT(*) AS total_products,
-    FROM {{ ref('int_products') }} AS inttable
+        CAST(
+        CASE 
+            WHEN SUM(fct_prod.selling_proposition) = 0 THEN 0  -- Returning 0 as a float
+            ELSE SUM(fct_prod.price_dollars * fct_prod.selling_proposition) / SUM(selling_proposition)
+        END
+        AS FLOAT) AS avg_order_value
+    FROM {{ ref('fact_products_performance') }} AS fct_prod
     JOIN {{ ref('dim_category')}} AS ct
-    ON inttable.category = ct.category
-    GROUP BY inttable.category
-    ORDER BY avg_price_dollars DESC
-),
-
-id_generated AS 
-(
-    SELECT 
-        {{ dbt_utils.generate_surrogate_key(['category']) }} AS category_id,
-        avg_price_dollars,
-        avg_discount,
-        avg_sold_proposition
-    FROM cols_to_keep
+    ON fct_prod.category_id = ct.category_id
+    GROUP BY ct.category
 )
 
 SELECT 
     *       
-FROM id_generated
+FROM cat_perf
+ORDER BY revenue DESC

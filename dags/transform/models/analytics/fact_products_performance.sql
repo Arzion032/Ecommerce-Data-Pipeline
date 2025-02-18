@@ -1,9 +1,10 @@
 SELECT 
-    sk_id AS prod_id,
-    ct.category_id,
-    price_dollars,
-    discount,
-    selling_proposition,
-    blackfriday_savings
-FROM {{ ref('int_products') }} AS inttable
-JOIN {{ ref('agg_category_performance') }} AS ct
+    prod.prod_id,
+    prod.category_id,
+    inttable.price_dollars,
+    inttable.discount,
+    inttable.selling_proposition,
+    inttable.blackfriday_savings
+FROM {{ ref('dim_products') }} AS prod
+JOIN {{ ref('int_products') }} AS inttable
+ON prod.prod_id = inttable.sk_id

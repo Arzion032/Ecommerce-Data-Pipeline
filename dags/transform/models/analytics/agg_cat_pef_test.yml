@@ -1,0 +1,43 @@
+models:
+  - name: agg_category_performance
+    columns:
+      - name: CATEGORY
+        tests:
+          - unique
+          - not_null
+
+      - name: REVENUE
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: float
+
+      - name: TOTAL_UNITS_SOLD
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: number
+
+      - name: AVG_PRICE_DOLLARS
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: float
+
+      - name: AVG_DISCOUNT
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: float
+
+      - name: TOTAL_PRODUCTS
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: number
+
+      - name: AVG_ORDER_VALUE
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: float
