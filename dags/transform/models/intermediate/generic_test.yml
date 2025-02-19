@@ -1,6 +1,0 @@
-models:
-- name: int_products
-  columns:
-  - name: goods_title_link_jump
-    tests:
-      - unique

@@ -5,11 +5,16 @@ models:
   transform:
     staging:
       +materialized: view
-      snowflake_warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"  # Models in `staging` will go to `staging` schema
+      snowflake_warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"  
 
     intermediate:
       +materialized: table
       snowflake_warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
-      +schema: intermediate  # Models in `intermediate` will go to `intermediate` schema
+      +schema: intermediate
+
+    analytics:
+      +materialized: table
+      snowflake_warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+      +schema: analytics
 
 

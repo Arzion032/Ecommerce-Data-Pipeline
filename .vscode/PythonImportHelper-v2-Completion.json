@@ -91,58 +91,6 @@
         "documentation": {}
     },
     {
-        "label": "sys",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
-        "documentation": {}
-    },
-    {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
-        "label": "argparse",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "argparse",
-        "description": "argparse",
-        "detail": "argparse",
-        "documentation": {}
-    },
-    {
-        "label": "pformat",
-        "importPath": "pprint",
-        "description": "pprint",
-        "isExtraImport": true,
-        "detail": "pprint",
-        "documentation": {}
-    },
-    {
-        "label": "jmespath",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "jmespath",
-        "description": "jmespath",
-        "detail": "jmespath",
-        "documentation": {}
-    },
-    {
-        "label": "exceptions",
-        "importPath": "jmespath",
-        "description": "jmespath",
-        "isExtraImport": true,
-        "detail": "jmespath",
-        "documentation": {}
-    },
-    {
         "label": "pandas",
         "kind": 6,
         "isExtraImport": true,
@@ -158,6 +106,14 @@
         "importPath": "kaggle",
         "description": "kaggle",
         "detail": "kaggle",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
         "documentation": {}
     },
     {
@@ -203,6 +159,22 @@
         "documentation": {}
     },
     {
+        "label": "ProfileConfig",
+        "importPath": "cosmos.config",
+        "description": "cosmos.config",
+        "isExtraImport": true,
+        "detail": "cosmos.config",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectConfig",
+        "importPath": "cosmos.config",
+        "description": "cosmos.config",
+        "isExtraImport": true,
+        "detail": "cosmos.config",
+        "documentation": {}
+    },
+    {
         "label": "dag",
         "importPath": "airflow.decorators",
         "description": "airflow.decorators",
@@ -219,6 +191,14 @@
         "documentation": {}
     },
     {
+        "label": "EmailOperator",
+        "importPath": "airflow.operators.email_operator",
+        "description": "airflow.operators.email_operator",
+        "isExtraImport": true,
+        "detail": "airflow.operators.email_operator",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
@@ -227,28 +207,20 @@
         "documentation": {}
     },
     {
-        "label": "extract_from_kaggle",
-        "importPath": "extract.get_data_kaggle",
-        "description": "extract.get_data_kaggle",
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
         "isExtraImport": true,
-        "detail": "extract.get_data_kaggle",
+        "detail": "datetime",
         "documentation": {}
     },
     {
-        "label": "dump_data",
-        "importPath": "load.load_data_snowflake",
-        "description": "load.load_data_snowflake",
-        "isExtraImport": true,
-        "detail": "load.load_data_snowflake",
-        "documentation": {}
-    },
-    {
-        "label": "requests",
+        "label": "sys",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "requests",
-        "description": "requests",
-        "detail": "requests",
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
         "documentation": {}
     },
     {
@@ -351,15 +323,6 @@
         "documentation": {}
     },
     {
-        "label": "main",
-        "kind": 2,
-        "importPath": ".venv.Scripts.jp",
-        "description": ".venv.Scripts.jp",
-        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser()\n    parser.add_argument('expression')\n    parser.add_argument('-f', '--filename',\n                        help=('The filename containing the input data.  '\n                              'If a filename is not given then data is '\n                              'read from stdin.'))\n    parser.add_argument('--ast', action='store_true',\n                        help=('Pretty print the AST, do not search the data.'))\n    args = parser.parse_args()",
-        "detail": ".venv.Scripts.jp",
-        "documentation": {}
-    },
-    {
         "label": "extract_from_kaggle",
         "kind": 2,
         "importPath": "dags.extract.get_data_kaggle",
@@ -378,11 +341,29 @@
         "documentation": {}
     },
     {
+        "label": "DBT_CONFIG",
+        "kind": 5,
+        "importPath": "dags.transform.cosmos_config",
+        "description": "dags.transform.cosmos_config",
+        "peekOfCode": "DBT_CONFIG = ProfileConfig(\n    profile_name='e-commerce',\n    target_name='dev',\n    profiles_yml_filepath=Path('/usr/local/airflow/dags/transform/profiles.yml')\n)\nDBT_PROJECT_CONFIG = ProjectConfig(\n    dbt_project_path='/usr/local/airflow/dags/transform/',\n)",
+        "detail": "dags.transform.cosmos_config",
+        "documentation": {}
+    },
+    {
+        "label": "DBT_PROJECT_CONFIG",
+        "kind": 5,
+        "importPath": "dags.transform.cosmos_config",
+        "description": "dags.transform.cosmos_config",
+        "peekOfCode": "DBT_PROJECT_CONFIG = ProjectConfig(\n    dbt_project_path='/usr/local/airflow/dags/transform/',\n)",
+        "detail": "dags.transform.cosmos_config",
+        "documentation": {}
+    },
+    {
         "label": "ecommerce_data_pipeline",
         "kind": 2,
         "importPath": "dags.dag",
         "description": "dags.dag",
-        "peekOfCode": "def ecommerce_data_pipeline():\n    @task()\n    def extract():\n        \"\"\"This function will extract data from Kaggle and convert it.\"\"\"\n        extract_from_kaggle()  \n    @task()\n    def load():\n        dump_data()\n    # Call the extraction and conversion task\n    extract() >> load()",
+        "peekOfCode": "def ecommerce_data_pipeline():\n    from extract.get_data_kaggle import extract_from_kaggle\n    @task()\n    def extract():\n        \"\"\"This function will extract data from Kaggle and convert it from csv to parquet.\"\"\"\n        extract_from_kaggle()  \n    @task()\n    def load():\n        from load.load_data_snowflake import dump_data\n        \"\"\"This function will load the parquet data into Snowflake.\"\"\"",
         "detail": "dags.dag",
         "documentation": {}
     },
@@ -391,7 +372,7 @@
         "kind": 5,
         "importPath": "dags.dag",
         "description": "dags.dag",
-        "peekOfCode": "default_args = {\n    \"owner\": \"airflow\",\n    \"start_date\": datetime(2025, 2, 1)\n}\n@dag(\n    schedule_interval=\"@daily\",  \n    default_args=default_args,   \n    description='E-Commerce Data Pipeline Project' \n)\ndef ecommerce_data_pipeline():",
+        "peekOfCode": "default_args = {\n    \"owner\": \"Melvin\",\n    \"start_date\": datetime(2025, 2, 1),\n    \"execution_timeout\": timedelta(hours=2),\n    \"email_on_failure\": True,\n    \"email_on_retry\": True,\n    \"retries\": 3,\n    \"retry_delay\": timedelta(minutes=1),\n    \"email_subject\": \"E-Commerce Data Pipeline\",\n    \"email_recipients\": os.getenv('EMAIL_RECIPIENT')  # Replace with your email address",
         "detail": "dags.dag",
         "documentation": {}
     },
@@ -465,24 +446,6 @@
         "description": "tests.dags.test_dag_example",
         "peekOfCode": "APPROVED_TAGS = {}\n@pytest.mark.parametrize(\n    \"dag_id,dag,fileloc\", get_dags(), ids=[x[2] for x in get_dags()]\n)\ndef test_dag_tags(dag_id, dag, fileloc):\n    \"\"\"\n    test if a DAG is tagged and if those TAGs are in the approved list\n    \"\"\"\n    assert dag.tags, f\"{dag_id} in {fileloc} has no tags\"\n    if APPROVED_TAGS:",
         "detail": "tests.dags.test_dag_example",
-        "documentation": {}
-    },
-    {
-        "label": "url",
-        "kind": 5,
-        "importPath": "test",
-        "description": "test",
-        "peekOfCode": "url = \"https://microdata.worldbank.org/index.php/api/tables/data/fcv/wld_2021_rtfp_v02_m?limit=15&offset=0&country=Philippines&fields=country,rice,l_rice,o_rice,trust_rice,o_rice_various,c_rice_various\"\nresponse = requests.get(url)\nif response.status_code == 200:\n    data = response.json()\n    print(data)\nelse:\n    print(f\"Request failed with status code {response.status_code}\")",
-        "detail": "test",
-        "documentation": {}
-    },
-    {
-        "label": "response",
-        "kind": 5,
-        "importPath": "test",
-        "description": "test",
-        "peekOfCode": "response = requests.get(url)\nif response.status_code == 200:\n    data = response.json()\n    print(data)\nelse:\n    print(f\"Request failed with status code {response.status_code}\")",
-        "detail": "test",
         "documentation": {}
     }
 ]

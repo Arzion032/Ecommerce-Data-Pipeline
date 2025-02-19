@@ -34,16 +34,16 @@ def dump_data():
 
     # Upload file to Snowflake stage
     for file in dataset_path.glob("*.parquet"):
-        # Convert to absolute path and replace backslashes with forward slashes
+        
         file_path = str(file.absolute()).replace('\\', '/')
     
         file_path = f"'file://{file_path}'"
             
-        # Create the PUT command with proper syntax
+   
         put_command = f"PUT {file_path} @product_stage OVERWRITE = TRUE"
         cur.execute(put_command)
 
-    # Confirm upload
+
     cur.execute("LIST @product_stage")
     print(cur.fetchall())
 

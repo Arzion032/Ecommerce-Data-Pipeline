@@ -1,2 +1,9 @@
 project:
     name: retail_data_pipeline
+    core:
+        lazy_load_plugins: true
+        load_examples: false
+    scheduler:
+        min_file_process_interval: 30
+        dag_dir_list_interval: 30
+        max_threads: 2
