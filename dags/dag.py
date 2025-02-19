@@ -1,18 +1,9 @@
 from airflow.decorators import dag, task
-from datetime import datetime
-from extract.get_data_kaggle import extract_from_kaggle
-from load.load_data_snowflake import dump_data
-
-from transform.cosmos_config import DBT_PROJECT_CONFIG, DBT_CONFIG
-from cosmos.airflow.task_group import DbtTaskGroup
-from cosmos.constants import LoadMode
-from cosmos.config import RenderConfig
 from airflow.operators.email_operator import EmailOperator
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 import sys
 import os
-import subprocess
 
 # Add 'extract' folder to sys.path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'extract'))
@@ -27,7 +18,7 @@ default_args = {
     "retries": 3,
     "retry_delay": timedelta(minutes=1),
     "email_subject": "E-Commerce Data Pipeline",
-    "email_recipients": ["jmelvinsarabia032@gmail.com"]  # Replace with your email address
+    "email_recipients": os.getenv('EMAIL_RECIPIENT')  # Replace with your email address
 }
 
 @dag(
@@ -37,7 +28,9 @@ default_args = {
     catchup= False
 )
 def ecommerce_data_pipeline():
-
+    
+    from extract.get_data_kaggle import extract_from_kaggle
+    
     @task()
     def extract():
         """This function will extract data from Kaggle and convert it from csv to parquet."""
@@ -45,23 +38,27 @@ def ecommerce_data_pipeline():
     
     @task()
     def load():
+        
+        from load.load_data_snowflake import dump_data
+        
         """This function will load the parquet data into Snowflake."""
         dump_data()
 
     @task()
     def run_dbt_deps():
+        
+        import subprocess
+        
         """This function runs dbt deps to install the required dependencies."""
         try:
             profiles_dir = "/usr/local/airflow/dags/transform"
             project_dir = "/usr/local/airflow/dags/transform"
 
-            # Optionally, modify environment variables
-            env = os.environ.copy()
+
 
             result = subprocess.run(
                 ['dbt', 'deps', '--profiles-dir', profiles_dir],
                 cwd=project_dir,
-                env=env,
                 check=True,
                 capture_output=True,
                 text=True
@@ -74,6 +71,12 @@ def ecommerce_data_pipeline():
     
     # Define DbtTaskGroups inside the DAG function
     def create_dbt_task_groups():
+        
+        from cosmos.airflow.task_group import DbtTaskGroup
+        from transform.cosmos_config import DBT_PROJECT_CONFIG, DBT_CONFIG
+        from cosmos.constants import LoadMode
+        from cosmos.config import RenderConfig
+        
         staging = DbtTaskGroup(
             group_id='staging',
             project_config=DBT_PROJECT_CONFIG,

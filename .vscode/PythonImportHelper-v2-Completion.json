@@ -175,14 +175,6 @@
         "documentation": {}
     },
     {
-        "label": "RenderConfig",
-        "importPath": "cosmos.config",
-        "description": "cosmos.config",
-        "isExtraImport": true,
-        "detail": "cosmos.config",
-        "documentation": {}
-    },
-    {
         "label": "dag",
         "importPath": "airflow.decorators",
         "description": "airflow.decorators",
@@ -196,6 +188,14 @@
         "description": "airflow.decorators",
         "isExtraImport": true,
         "detail": "airflow.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "EmailOperator",
+        "importPath": "airflow.operators.email_operator",
+        "description": "airflow.operators.email_operator",
+        "isExtraImport": true,
+        "detail": "airflow.operators.email_operator",
         "documentation": {}
     },
     {
@@ -215,86 +215,12 @@
         "documentation": {}
     },
     {
-        "label": "extract_from_kaggle",
-        "importPath": "extract.get_data_kaggle",
-        "description": "extract.get_data_kaggle",
-        "isExtraImport": true,
-        "detail": "extract.get_data_kaggle",
-        "documentation": {}
-    },
-    {
-        "label": "dump_data",
-        "importPath": "load.load_data_snowflake",
-        "description": "load.load_data_snowflake",
-        "isExtraImport": true,
-        "detail": "load.load_data_snowflake",
-        "documentation": {}
-    },
-    {
-        "label": "DBT_PROJECT_CONFIG",
-        "importPath": "transform.cosmos_config",
-        "description": "transform.cosmos_config",
-        "isExtraImport": true,
-        "detail": "transform.cosmos_config",
-        "documentation": {}
-    },
-    {
-        "label": "DBT_CONFIG",
-        "importPath": "transform.cosmos_config",
-        "description": "transform.cosmos_config",
-        "isExtraImport": true,
-        "detail": "transform.cosmos_config",
-        "documentation": {}
-    },
-    {
-        "label": "DbtTaskGroup",
-        "importPath": "cosmos.airflow.task_group",
-        "description": "cosmos.airflow.task_group",
-        "isExtraImport": true,
-        "detail": "cosmos.airflow.task_group",
-        "documentation": {}
-    },
-    {
-        "label": "LoadMode",
-        "importPath": "cosmos.constants",
-        "description": "cosmos.constants",
-        "isExtraImport": true,
-        "detail": "cosmos.constants",
-        "documentation": {}
-    },
-    {
-        "label": "EmailOperator",
-        "importPath": "airflow.operators.email_operator",
-        "description": "airflow.operators.email_operator",
-        "isExtraImport": true,
-        "detail": "airflow.operators.email_operator",
-        "documentation": {}
-    },
-    {
         "label": "sys",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "sys",
         "description": "sys",
         "detail": "sys",
-        "documentation": {}
-    },
-    {
-        "label": "subprocess",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "subprocess",
-        "description": "subprocess",
-        "detail": "subprocess",
-        "documentation": {}
-    },
-    {
-        "label": "requests",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "requests",
-        "description": "requests",
-        "detail": "requests",
         "documentation": {}
     },
     {
@@ -437,7 +363,7 @@
         "kind": 2,
         "importPath": "dags.dag",
         "description": "dags.dag",
-        "peekOfCode": "def ecommerce_data_pipeline():\n    @task()\n    def extract():\n        \"\"\"This function will extract data from Kaggle and convert it from csv to parquet.\"\"\"\n        extract_from_kaggle()  \n    @task()\n    def load():\n        \"\"\"This function will load the parquet data into Snowflake.\"\"\"\n        dump_data()\n    @task()",
+        "peekOfCode": "def ecommerce_data_pipeline():\n    from extract.get_data_kaggle import extract_from_kaggle\n    @task()\n    def extract():\n        \"\"\"This function will extract data from Kaggle and convert it from csv to parquet.\"\"\"\n        extract_from_kaggle()  \n    @task()\n    def load():\n        from load.load_data_snowflake import dump_data\n        \"\"\"This function will load the parquet data into Snowflake.\"\"\"",
         "detail": "dags.dag",
         "documentation": {}
     },
@@ -446,7 +372,7 @@
         "kind": 5,
         "importPath": "dags.dag",
         "description": "dags.dag",
-        "peekOfCode": "default_args = {\n    \"owner\": \"Melvin\",\n    \"start_date\": datetime(2025, 2, 1),\n    \"execution_timeout\": timedelta(hours=2),\n    \"email_on_failure\": True,\n    \"email_on_retry\": True,\n    \"retries\": 3,\n    \"retry_delay\": timedelta(minutes=1),\n    \"email_subject\": \"E-Commerce Data Pipeline\",\n    \"email_recipients\": [\"jmelvinsarabia032@gmail.com\"]  # Replace with your email address",
+        "peekOfCode": "default_args = {\n    \"owner\": \"Melvin\",\n    \"start_date\": datetime(2025, 2, 1),\n    \"execution_timeout\": timedelta(hours=2),\n    \"email_on_failure\": True,\n    \"email_on_retry\": True,\n    \"retries\": 3,\n    \"retry_delay\": timedelta(minutes=1),\n    \"email_subject\": \"E-Commerce Data Pipeline\",\n    \"email_recipients\": os.getenv('EMAIL_RECIPIENT')  # Replace with your email address",
         "detail": "dags.dag",
         "documentation": {}
     },
@@ -520,24 +446,6 @@
         "description": "tests.dags.test_dag_example",
         "peekOfCode": "APPROVED_TAGS = {}\n@pytest.mark.parametrize(\n    \"dag_id,dag,fileloc\", get_dags(), ids=[x[2] for x in get_dags()]\n)\ndef test_dag_tags(dag_id, dag, fileloc):\n    \"\"\"\n    test if a DAG is tagged and if those TAGs are in the approved list\n    \"\"\"\n    assert dag.tags, f\"{dag_id} in {fileloc} has no tags\"\n    if APPROVED_TAGS:",
         "detail": "tests.dags.test_dag_example",
-        "documentation": {}
-    },
-    {
-        "label": "url",
-        "kind": 5,
-        "importPath": "test",
-        "description": "test",
-        "peekOfCode": "url = \"https://microdata.worldbank.org/index.php/api/tables/data/fcv/wld_2021_rtfp_v02_m?limit=15&offset=0&country=Philippines&fields=country,rice,l_rice,o_rice,trust_rice,o_rice_various,c_rice_various\"\nresponse = requests.get(url)\nif response.status_code == 200:\n    data = response.json()\n    print(data)\nelse:\n    print(f\"Request failed with status code {response.status_code}\")",
-        "detail": "test",
-        "documentation": {}
-    },
-    {
-        "label": "response",
-        "kind": 5,
-        "importPath": "test",
-        "description": "test",
-        "peekOfCode": "response = requests.get(url)\nif response.status_code == 200:\n    data = response.json()\n    print(data)\nelse:\n    print(f\"Request failed with status code {response.status_code}\")",
-        "detail": "test",
         "documentation": {}
     }
 ]
