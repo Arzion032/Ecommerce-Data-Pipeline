@@ -152,6 +152,6 @@ This project was inspired by various **data engineering tutorials and resources*
 ---
 
 ## **🚀 Future Enhancements**
-- Integrate **Soda Test** (Pending compatibility fixes between Soda Core and Astronomer Cosmos).
-  - `soda-core` relies on an older version of OpenTelemetry, while **Astronomer Cosmos** requires a newer version, leading to dependency conflicts.
+- Integrate **Soda Test** (Pending compatibility fixes between Soda Core and Astronomer).
+  - `soda-core` relies on an older version of OpenTelemetry, while **Astronomer** requires a newer version, leading to dependency conflicts.
 - Expand the dataset for deeper analytics.
