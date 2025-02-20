@@ -122,10 +122,10 @@ PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
 ### **2. Start Astro Dev**
 ```bash
 astro dev start
-
+```
 
 ### **3. Handling Postgres Port Conflict**
-This pipeline uses the PostgreSQL port (5432). If you encounter an error indicating the port is in use, run:
+Astronomer runs a PostgreSQL container for Airflow's metadata database on port 5432. If you encounter an error indicating that the port is already in use, run:
 ```bash
 netstat -ano | findstr :5432
 taskkill /PID <PID> /F
