@@ -1,48 +1,143 @@
-Overview
-========
+# **E-Commerce Product Performance Data Pipeline**
 
-Welcome to Astronomer! This project was generated after you ran 'astro dev init' using the Astronomer CLI. This readme describes the contents of the project, as well as how to run Apache Airflow on your local machine.
+## **📌 Project Overview**
+This pipeline tracks the performance of products on Shein for a company, visualizing key metrics in a **Power BI dashboard**.
 
-Project Contents
-================
+The dataset consists of **21 CSV files**, each representing a different product category. These files are transformed, cleaned, and aggregated into a **single analytics layer** for reporting.
 
-Your Astro project contains the following files and folders:
+---
 
-- dags: This folder contains the Python files for your Airflow DAGs. By default, this directory includes one example DAG:
-    - `example_astronauts`: This DAG shows a simple ETL pipeline example that queries the list of astronauts currently in space from the Open Notify API and prints a statement for each astronaut. The DAG uses the TaskFlow API to define tasks in Python, and dynamic task mapping to dynamically print a statement for each astronaut. For more on how this DAG works, see our [Getting started tutorial](https://www.astronomer.io/docs/learn/get-started-with-airflow).
-- Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience. If you want to execute other commands or overrides at runtime, specify them here.
-- include: This folder contains any additional files that you want to include as part of your project. It is empty by default.
-- packages.txt: Install OS-level packages needed for your project by adding them to this file. It is empty by default.
-- requirements.txt: Install Python packages needed for your project by adding them to this file. It is empty by default.
-- plugins: Add custom or community plugins for your project to this file. It is empty by default.
-- airflow_settings.yaml: Use this local-only file to specify Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI as you develop DAGs in this project.
+## **🎯 Target Audience**
+- **Data Analysts** – Analyze trends, insights, and product performance.
+- **Business Users** – Make data-driven decisions based on key performance metrics.
 
-Deploy Your Project Locally
-===========================
+---
 
-1. Start Airflow on your local machine by running 'astro dev start'.
+## **📊 Data Source**
+- **Kaggle API** ([Dataset Link](https://www.kaggle.com/datasets/oleksiimartusiuk/e-commerce-data-shein))
 
-This command will spin up 4 Docker containers on your machine, each for a different Airflow component:
+---
 
-- Postgres: Airflow's Metadata Database
-- Webserver: The Airflow component responsible for rendering the Airflow UI
-- Scheduler: The Airflow component responsible for monitoring and triggering tasks
-- Triggerer: The Airflow component responsible for triggering deferred tasks
+## **🛠️ Technologies Used**
+| Tool                         | Purpose |
+|------------------------------|---------|
+| **Kaggle API**               | Extracts raw data (CSV files) |
+| **Snowflake**                | Stores and processes data |
+| **Airflow (Astronomer-Cosmos)** | Orchestrates the data pipeline |
+| **DBT**                      | Transforms and materializes data |
+| **Power BI**                 | Visualizes performance and KPIs |
+| **Docker**                   | Containerizes the pipeline for consistency |
 
-2. Verify that all 4 Docker containers were created by running 'docker ps'.
+---
 
-Note: Running 'astro dev start' will start your project with the Airflow Webserver exposed at port 8080 and Postgres exposed at port 5432. If you already have either of those ports allocated, you can either [stop your existing Docker containers or change the port](https://www.astronomer.io/docs/astro/cli/troubleshoot-locally#ports-are-not-available-for-my-local-airflow-webserver).
+## **📂 Data Pipeline Flow**
+### **1️⃣ Data Extraction & Loading**
+- **Extract** data from **Kaggle API** using Python.
+- Convert **CSV files to Parquet** format.
+- Load Parquet files to **Snowflake External Stage**.
 
-3. Access the Airflow UI for your local Airflow project. To do so, go to http://localhost:8080/ and log in with 'admin' for both your Username and Password.
+### **2️⃣ Transformation (DBT)**
+- **Staging Layer (stg_products)**: Combines all **21 files** into a **single view** with their file name as the **category column**.
+- **Intermediate Layer (int_products)**:
+  - Cleans, normalizes, standardizes, and imputes missing values.
+- **Analytics Layer**:
+  - **agg_category_performance** – Category-level performance aggregation.
+  - **dim_products** – Contains descriptive attributes of products.
+  - **fact_product_performance** – Stores transactional performance data of each product
+  - **dim_category** – Stores category metadata.
 
-You should also be able to access your Postgres Database at 'localhost:5432/postgres'.
+**Data Integrity Tests:**
+- Tests are implemented for **int_products** and **agg_category_performance** to ensure data consistency and accuracy.
 
-Deploy Your Project to Astronomer
-=================================
+### **3️⃣ Orchestration (Airflow - Astronomer-Cosmos)**
+- The pipeline **runs daily** but can be reconfigured.
+- **Email notifications** are sent upon **successful execution**.
 
-If you have an Astronomer account, pushing code to a Deployment on Astronomer is simple. For deploying instructions, refer to Astronomer documentation: https://www.astronomer.io/docs/astro/deploy-code/
+---
 
-Contact
-=======
+## **📊 KPIs & Dashboard Design**
+### **Key Metrics:**
+✔️ **Revenue**  
+✔️ **Total Products**  
+✔️ **Units Sold**  
+✔️ **Average Order Value (AOV)**  
+✔️ **Average Price**  
+✔️ **Average Discount**  
+✔️ **Ranked Items per Category**  
 
-The Astronomer CLI is maintained with love by the Astronomer team. To report a bug or suggest a change, reach out to our support.
+### **Visuals in Power BI:**
+📊 **Scorecard** – Displays key metrics.  
+📊 **Matrix/Table** – Detailed breakdown by category.  
+📊 **Bar Chart** – Visualizes trends over time.  
+📊 **Slicer/Filters** – Allows users to drill down into categories.  
+
+---
+
+## **📌 Setup & Installation**
+### **1️⃣ Prerequisites**
+Ensure you have the following installed:
+- **Docker** (Required for running Airflow & DBT)
+- **Python 3.10+**
+- **Snowflake Account** (Can use a free trial)
+- **Power BI** (For visualization)
+
+### **2️⃣ Environment Variables**
+Set up your **`.env` file** with the following:
+
+```plaintext
+# Snowflake Credentials
+SNOWFLAKE_USER=your_snowflake_username
+SNOWFLAKE_PASSWORD=your_snowflake_password
+SNOWFLAKE_ACCOUNT=your_snowflake_account
+SNOWFLAKE_WAREHOUSE=your_snowflake_warehouse
+SNOWFLAKE_DATABASE=your_snowflake_database
+SNOWFLAKE_SCHEMA=your_snowflake_schema
+SNOWFLAKE_ROLE=your_snowflake_role
+
+# Airflow Email Notifications
+AIRFLOW__SMTP__SMTP_HOST=smtp.gmail.com
+AIRFLOW__SMTP__SMTP_PORT=587
+AIRFLOW__SMTP__SMTP_USER=sender_email@example.com
+AIRFLOW__SMTP__SMTP_PASSWORD=sender_password
+AIRFLOW__SMTP__SMTP_MAIL_FROM=sender_email@example.com
+AIRFLOW__SMTP__SMTP_STARTTLS=True
+EMAIL_RECIPIENT=receiver_email@example.com
+
+# Other
+PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
+
+## **3️⃣ Additional Credentials**
+- Store Kaggle credentials in `include/.kaggle`.
+- Install Power BI for visualization.
+
+---
+
+## **📌 Running the Pipeline**
+
+### **1. Ensure All Credentials are Set**
+- Make sure you have Kaggle and Snowflake credentials.
+- Store them in the environment variables.
+
+### **2. Start Astro Dev**
+```bash
+astro dev start
+```
+
+### **3. Handling Postgres Port Conflict**
+This pipeline uses the PostgreSQL port (5432). If you encounter an error indicating the port is in use, run:
+```bash
+netstat -ano | findstr :5432
+taskkill /PID <PID> /F
+```
+Then restart Astro Dev:
+```bash
+astro dev stop
+astro dev start
+```
+
+---
+
+## **🚀 Future Enhancements**
+- Integrate **Soda Test** (Pending compatibility fixes between Soda Core and Astronomer Cosmos).
+  - `soda-core` relies on an older version of OpenTelemetry, while **Astronomer Cosmos** requires a newer version, leading to dependency conflicts.
+- Expand the dataset for deeper analytics.
