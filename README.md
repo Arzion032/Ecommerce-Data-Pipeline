@@ -1,9 +1,9 @@
 # **E-Commerce Product Performance Data Pipeline**
 ![ETL Data Pipeline](ecommerce.drawio.png)  
-## **📌 Project Overview**
-This pipeline tracks the performance of products on Shein for a company, visualizing key metrics in a **Power BI dashboard**.
+## **📌 Project Overview**  
+This pipeline tracks the performance of products on Shein for a company, visualizing key metrics in a **Power BI dashboard**.  
 
-The dataset consists of **21 CSV files**, each representing a different product category. These files are transformed, cleaned, and aggregated into a **single analytics layer** for reporting.
+The dataset consists of **21 CSV files**, each representing a different product category. These files are loaded into **Snowflake**, where they are transformed, cleaned, and aggregated into the **analytics layer** for reporting and insights.  
 
 ---
 
@@ -29,7 +29,6 @@ The dataset consists of **21 CSV files**, each representing a different product 
 | **Docker**                   | Containerizes the pipeline for consistency and portability (**provided by Astronomer**). |
 | **Astronomer**               | Provides a managed Airflow environment for deployment and scalability. |
 
-
 ---
 
 ## **📂 Data Pipeline Flow**
@@ -39,7 +38,7 @@ The dataset consists of **21 CSV files**, each representing a different product 
 - Load Parquet files to **Snowflake External Stage**.
 
 ### **2️⃣ Transformation (DBT)**
-- **Staging Layer (stg_products)**: Combines all **21 files** into a **single view** with their file name as the **category column**.
+- **Staging Layer (stg_products)**: Combines all **21 files** into a **single view**, with the **category** column populated based on the file name (e.g., "appliances" for records from `appliances.csv`, "electronics" for `electronics.csv`).
 - **Intermediate Layer (int_products)**:
   - Cleans, normalizes, standardizes, and imputes missing values.
 - **Analytics Layer**:
@@ -51,7 +50,7 @@ The dataset consists of **21 CSV files**, each representing a different product 
 **Data Integrity Tests:**
 - Tests are implemented for **int_products** and **agg_category_performance** to ensure data consistency and accuracy.
 
-### **3️⃣ Orchestration (Airflow - Astronomer-Cosmos)**
+### **3️⃣ Orchestration (Airflow - Astronomer)**
 - The pipeline **runs daily** but can be reconfigured.
 - **Email notifications** are sent upon **successful execution**.
 
@@ -108,6 +107,7 @@ EMAIL_RECIPIENT=receiver_email@example.com
 # Other
 PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
 
+```
 ## **3️⃣ Additional Credentials**
 - Store Kaggle credentials in `include/.kaggle`.
 - Install Power BI for visualization.
@@ -123,7 +123,7 @@ PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
 ### **2. Start Astro Dev**
 ```bash
 astro dev start
-```
+
 
 ### **3. Handling Postgres Port Conflict**
 This pipeline uses the PostgreSQL port (5432). If you encounter an error indicating the port is in use, run:
@@ -136,6 +136,19 @@ Then restart Astro Dev:
 astro dev stop
 astro dev start
 ```
+---
+
+## **💡 References & Inspiration**  
+This project was inspired by various **data engineering tutorials and resources**:  
+
+- **Jayzern - Code Along**: Build an **ELT Pipeline** in 1 Hour using **dbt, Snowflake, and Airflow**  
+  📌 [Watch here](https://www.youtube.com/watch?v=OLXkGB7krGo&t=392s)  
+
+- **Data with Marc**: **End-to-End Airflow Data Pipeline** with **BigQuery, dbt, Soda, and more**  
+  📌 [Watch here](https://www.youtube.com/watch?v=DzxtCxi4YaA&t=1008s)  
+
+- **Sandy Lauguico**: Build an **eCommerce Data Pipeline** using the **Modern Data Stack**  
+  📌 [GitHub Repository](https://github.com/sclauguico/ecommerce-modern-data-stack)  
 
 ---
 
