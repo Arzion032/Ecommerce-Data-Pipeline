@@ -140,13 +140,13 @@ astro dev start
 ## **💡 References & Inspiration**  
 This project was inspired by various **data engineering tutorials and resources**:  
 
-- **Jayzern - Code Along**: Build an **ELT Pipeline** in 1 Hour using **dbt, Snowflake, and Airflow**  
+- **Jayzern** - Code Along: Build an ELT Pipeline in 1 Hour using dbt, Snowflake, and Airflow
   📌 [Watch here](https://www.youtube.com/watch?v=OLXkGB7krGo&t=392s)  
 
-- **Data with Marc**: **End-to-End Airflow Data Pipeline** with **BigQuery, dbt, Soda, and more**  
+- **Data with Marc**: End-to-End Airflow Data Pipeline with BigQuery, dbt, Soda, and more
   📌 [Watch here](https://www.youtube.com/watch?v=DzxtCxi4YaA&t=1008s)  
 
-- **Sandy Lauguico**: Build an **eCommerce Data Pipeline** using the **Modern Data Stack**  
+- **Sandy Lauguico**: Build an eCommerce Data Pipeline using the Modern Data Stack
   📌 [GitHub Repository](https://github.com/sclauguico/ecommerce-modern-data-stack)  
 
 ---
