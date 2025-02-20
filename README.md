@@ -18,15 +18,17 @@ The dataset consists of **21 CSV files**, each representing a different product 
 
 ---
 
-## **🛠️ Technologies Used**
+## **🛠️ Technologies Used**  
 | Tool                         | Purpose |
 |------------------------------|---------|
-| **Kaggle API**               | Extracts raw data (CSV files) |
-| **Snowflake**                | Stores and processes data |
-| **Airflow (Astronomer-Cosmos)** | Orchestrates the data pipeline |
-| **DBT**                      | Transforms and materializes data |
-| **Power BI**                 | Visualizes performance and KPIs |
-| **Docker**                   | Containerizes the pipeline for consistency |
+| **Kaggle API**               | Extracts raw data (CSV files) from Kaggle datasets. |
+| **Snowflake**                | Stores, stages, and processes data efficiently. |
+| **Airflow**                  | Orchestrates workflows and schedules pipeline execution (**managed via Astronomer**). |
+| **DBT**                      | Transforms and materializes data in Snowflake (**integrated via Astronomer Cosmos**). |
+| **Power BI**                 | Visualizes insights, reports, and KPIs. |
+| **Docker**                   | Containerizes the pipeline for consistency and portability (**provided by Astronomer**). |
+| **Astronomer**               | Provides a managed Airflow environment for deployment and scalability. |
+
 
 ---
 
