@@ -77,8 +77,8 @@ The dataset consists of **21 CSV files**, each representing a different product 
 ## **📌 Setup & Installation**
 ### **1️⃣ Prerequisites**
 Ensure you have the following installed:
-- **Docker** (Required for running Airflow & DBT)
-- **Python 3.10+**
+- **Docker** (Required for running Astronomer)
+- **Python 3.11+**
 - **Snowflake Account** (Can use a free trial)
 - **Power BI** (For visualization)
 
