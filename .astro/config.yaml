@@ -1,5 +1,5 @@
 project:
-    name: retail_data_pipeline
+    name: ecommerce_data_pipeline
     core:
         lazy_load_plugins: true
         load_examples: false

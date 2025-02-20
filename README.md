@@ -1,5 +1,5 @@
 # **E-Commerce Product Performance Data Pipeline**
-
+![ETL Data Pipeline](ecommerce.drawio.png)  
 ## **📌 Project Overview**
 This pipeline tracks the performance of products on Shein for a company, visualizing key metrics in a **Power BI dashboard**.
 
@@ -61,8 +61,8 @@ The dataset consists of **21 CSV files**, each representing a different product 
 ✔️ **Total Products**  
 ✔️ **Units Sold**  
 ✔️ **Average Order Value (AOV)**  
-✔️ **Average Price**  
-✔️ **Average Discount**  
+✔️ **Average Price per Category**  
+✔️ **Average Discount per Category**  
 ✔️ **Ranked Items per Category**  
 
 ### **Visuals in Power BI:**
