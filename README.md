@@ -1,9 +1,9 @@
 # **E-Commerce Product Performance Data Pipeline**
 ![ETL Data Pipeline](ecommerce.drawio.png)  
 ## **📌 Project Overview**  
-This pipeline tracks the performance of products on Shein for a company, visualizing key metrics in a **Power BI dashboard**.  
+This pipeline tracks the performance of products on Shein for a company.  
 
-The dataset consists of **21 CSV files**, each representing a different product category. These files are loaded into **Snowflake**, where they are transformed, cleaned, and aggregated into the **analytics layer** for reporting and insights.  
+The dataset consists of **21 CSV files**, each representing a different product category. These files are loaded into **Snowflake**, where they are transformed, cleaned, and aggregated into the **analytics layer** for reporting and insights, with key metrics visualized in a **Power BI dashboard**.   
 
 ---
 
