@@ -106,7 +106,6 @@ EMAIL_RECIPIENT=receiver_email@example.com
 
 # Other
 PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python
-
 ```
 ## **3️⃣ Additional Credentials**
 - Store Kaggle credentials in `include/.kaggle`.
