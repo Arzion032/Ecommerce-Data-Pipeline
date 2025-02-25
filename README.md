@@ -1,4 +1,4 @@
-# **E-Commerce Product Performance Data Pipeline**
+# **E-Commerce Data Pipeline**
 ![ETL Data Pipeline](ecommerce.drawio.png)  
 ## **📌 Project Overview**  
 This pipeline tracks the performance of products on Shein for a company.  
